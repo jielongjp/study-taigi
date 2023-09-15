@@ -1,6 +1,6 @@
-import { styled } from 'styled-components';
-import CategoryNames from '../../utils/CatergoryNames';
-import Link from 'next/link';
+import { styled } from "styled-components";
+import CategoryNames from "../../utils/CatergoryNames";
+import Link from "next/link";
 
 export default function CategoryCardList() {
   return (
@@ -35,9 +35,10 @@ const StLinkList = styled.ul`
   padding: 0;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 
   li {
-    margin: 0 10px; /* Add spacing between cards */
+    margin: 10px;
   }
 
   a {
@@ -57,12 +58,12 @@ const StLinkList = styled.ul`
 
   @media (max-width: 400px) {
     li {
-      margin-bottom: 5px; /* Reduce spacing between cards on mobile */
+      margin-bottom: 5px;
     }
 
     a {
-      padding: 8px 16px; /* Adjust padding for mobile */
-      font-size: 16px; /* Increase font size for mobile */
+      padding: 8px 16px;
+      font-size: 16px;
     }
   }
 `;
