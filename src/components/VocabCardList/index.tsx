@@ -197,7 +197,7 @@ const StToggle = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #85a3c3;
   }
 `;
 
@@ -248,7 +248,7 @@ const StExamplesButton = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #85a3c3;
   }
 `;
 
