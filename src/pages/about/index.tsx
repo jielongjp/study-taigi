@@ -31,8 +31,8 @@ export default function About() {
       <StHeading>about me (the author)</StHeading>
 
       <StParagraph>
-        I'm a web developer based in Tokyo. To see more or get in touch check
-        out my personal website below.
+        I&apos;m a web developer based in Tokyo. To see more or get in touch
+        check out my personal website below.
       </StParagraph>
       <StParagraph>
         <a href="https://jordharris.com"> Jordan Harris web developer</a>

@@ -6,28 +6,29 @@ export default function Resources() {
       <StTitle>Resources for learning Taiwanese</StTitle>
       <StHeading>Most recommended</StHeading>
       <StParagraph>
-        While there aren't alot of resources, a few standout books and sites are
-        available for learning Taiwanese Hokkien in English.<br></br> Here are
-        some of the best ones i've come across while learning.
+        While there aren&apos;t alot of resources, a few standout books and
+        sites are available for learning Taiwanese Hokkien in English.<br></br>{" "}
+        Here are some of the best ones i&apos;ve come across while learning.
       </StParagraph>
       <StHeading>Bite Size Taiwanese</StHeading>
       <StParagraph>
-        Although they really isn't much choice when it comes to podcasts for
-        learning the Taiwanese language, luckily this podcast is really well
-        made and a joy to listen to. It's easy to tell a lot of planning went
-        into this podcast as lessons are well structured and full of knowledge.
-        There are also extra paid material that can be bought such as worksheets
-        and a vocabulary book, Short Takes: A Scene-based Taiwanese Vocabulary
-        Builder. I just wish they had continued with a few more seasons.
+        Although they really isn&apos;t much choice when it comes to podcasts
+        for learning the Taiwanese language, luckily this podcast is really well
+        made and a joy to listen to. It&apos;s easy to tell a lot of planning
+        went into this podcast as lessons are well structured and full of
+        knowledge. There are also extra paid material that can be bought such as
+        worksheets and a vocabulary book, Short Takes: A Scene-based Taiwanese
+        Vocabulary Builder. I just wish they had continued with a few more
+        seasons.
       </StParagraph>
       <StHeading>
         Southern Hokkien: An Introduction (three textbooks) by SOAS
       </StHeading>
       <StParagraph>
-        For a textbook I'd recommend either this one or the Maryknoll textbook
-        written below. Both have good parts and bad parts to them. For these
-        books, I was a bit disappointed that the dialogues have no audio (vocab
-        and grammar examples only) and the numbered tones instead of tone
+        For a textbook I&apos;d recommend either this one or the Maryknoll
+        textbook written below. Both have good parts and bad parts to them. For
+        these books, I was a bit disappointed that the dialogues have no audio
+        (vocab and grammar examples only) and the numbered tones instead of tone
         markers, while are fine early on, become a little distracting later on,
         especially for those also wanting to learn to read other materials in
         Taiwanese. I was also hoping for a nicer layout and style for a modern
@@ -40,14 +41,14 @@ export default function Resources() {
       <StHeading>Maryknoll Taiwanese</StHeading>
       <StParagraph>
         The content in them is great, but often catered more to teaching for
-        Christian preachers and you'll find a lot of related vocab. The
-        conversations are still relevant for any learners though and it's only a
-        few words here and there. The books are a little old and can be harder
-        to read for those used to modern publications.
+        Christian preachers and you&apos;ll find a lot of related vocab. The
+        conversations are still relevant for any learners though and it&apos;s
+        only a few words here and there. The books are a little old and can be
+        harder to read for those used to modern publications.
       </StParagraph>
       <StHeading>Reddit r/ohtaigi</StHeading>
       <StParagraph>
-        There's lots of information in this subreddit aimed for learners of
+        There&apos;s lots of information in this subreddit aimed for learners of
         Taiwanese. <br></br>
         <a href="https://www.reddit.com/r/ohtaigi/">
           Learning Taiwanese subreddit
@@ -58,10 +59,10 @@ export default function Resources() {
         Taiwanese Grammar: A Concise Reference by Philip T. Lin
       </StHeading>
       <StParagraph>
-        Don't be fooled by the title, this book is the most in depth guide to
-        Taiwanese grammar you'll find. The book is really well written and not
-        as difficult to read as some grammar books can be. Philip Lin is also
-        one of the co-hosts of Bitesize Taiwanese.
+        Don&apos;t be fooled by the title, this book is the most in depth guide
+        to Taiwanese grammar you&apos;ll find. The book is really well written
+        and not as difficult to read as some grammar books can be. Philip Lin is
+        also one of the co-hosts of Bitesize Taiwanese.
       </StParagraph>
       <StHeading>Taikegui, Taiwanese song lyrics</StHeading>
       <StParagraph>
@@ -75,15 +76,15 @@ export default function Resources() {
       </StSubtitle>
       <StHeading>Glossika</StHeading>
       <StParagraph>
-        Although it offers a nice UI and fun method of learning, I've heard some
-        of the sentences used are not so commonly used and often sound a little
-        strange.
+        Although it offers a nice UI and fun method of learning, I&apos;ve heard
+        some of the sentences used are not so commonly used and often sound a
+        little strange.
       </StParagraph>
       <StHeading>Anki</StHeading>
       <StParagraph>
         Not just for Taiwanese, anki is a great flashcard learning app for any
         language. There are a few flashcard sets (decks) for Taiwanese there.
-        I'd recommend using one with sound files attatched.
+        I&apos;d recommend using one with sound files attatched.
       </StParagraph>
       <StHeading>Memrise</StHeading>
       <StParagraph>
