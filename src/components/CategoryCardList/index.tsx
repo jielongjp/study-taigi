@@ -32,7 +32,7 @@ const StTitle = styled.div`
 
 const StLinkList = styled.ul`
   list-style: none;
-  padding: 0;
+  padding: 0 12%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

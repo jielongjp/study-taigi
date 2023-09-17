@@ -20,6 +20,7 @@ export default function Home() {
       <main>
         <StTitle>Taiwanese Hokkien Vocab</StTitle>
         <CategoryCardList />
+        <StFeatured>This weeks featured vocab:</StFeatured>
         <VocabCardList spreadsheetUrl={spreadsheetURL} categoryName="colors" />
       </main>
     </>
@@ -31,5 +32,8 @@ const spreadsheetURL =
 
 const StTitle = styled.h1`
   margin: 8px;
+  text-align: center;
+`;
+const StFeatured = styled.p`
   text-align: center;
 `;
