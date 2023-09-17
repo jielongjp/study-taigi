@@ -3,6 +3,7 @@ import axios from "axios";
 import { styled } from "styled-components";
 import Loading from "../Loading";
 import VocabListItem from "../VocabListItem";
+import MultipleChoiceItem from "../MultipleChoiceItem";
 
 export interface RowData {
   columnA: string;
@@ -19,6 +20,7 @@ export interface RowData {
   columnL?: string;
   columnM?: string;
   columnN?: string;
+  columnO?: string;
 }
 
 interface VocabListProps {
@@ -32,6 +34,7 @@ export default function VocabList({
 }: VocabListProps) {
   const [vocabList, setVocabList] = useState<RowData[]>([]);
   const [hideMeaning, setHideMeaning] = useState(false);
+  const [showTest, setShowTest] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -51,27 +54,27 @@ export default function VocabList({
             columnC: cells[2]?.textContent || "",
             columnD: cells[3]?.textContent || "",
             columnE: cells[4]?.textContent || "",
-            columnJ: cells[9]?.textContent || "",
+            columnF: cells[5]?.textContent || "",
+            columnK: cells[10]?.textContent || "",
           };
 
-          if (rowData.columnE && rowData.columnE.includes("Example")) {
-            console.log("row example");
+          if (rowData.columnF && rowData.columnF.includes("Example sentence")) {
             rowData = {
               ...rowData,
-              columnF: cells[5]?.textContent || "",
               columnG: cells[6]?.textContent || "",
               columnH: cells[7]?.textContent || "",
               columnI: cells[8]?.textContent || "",
+              columnJ: cells[9]?.textContent || "",
             };
           }
 
-          if (rowData.columnJ && rowData.columnJ.includes("Example sentence")) {
+          if (rowData.columnK && rowData.columnK.includes("Example sentence")) {
             rowData = {
               ...rowData,
-              columnK: cells[10]?.textContent || "",
               columnL: cells[11]?.textContent || "",
               columnM: cells[12]?.textContent || "",
               columnN: cells[13]?.textContent || "",
+              columnO: cells[14]?.textContent || "",
             };
           }
 
@@ -92,14 +95,8 @@ export default function VocabList({
     setHideMeaning(!hideMeaning);
   };
 
-  const [showExamples, setShowExamples] = useState<boolean[]>(
-    Array(vocabList.length).fill(false)
-  );
-
-  const toggleExamples = (index: number) => {
-    const newShowExamples = [...showExamples];
-    newShowExamples[index] = !newShowExamples[index];
-    setShowExamples(newShowExamples);
+  const toggleTest = () => {
+    setShowTest(!showTest);
   };
 
   return (
@@ -109,27 +106,75 @@ export default function VocabList({
       ) : (
         <>
           <StCatTitle>
-            <h2>Category: {categoryName} vocab</h2>
-            <p>total {vocabList.length} words</p>
+            <StToggle onClick={toggleTest}>
+              {showTest ? "Hide test" : "Test me"}
+            </StToggle>
+            <h2>Category: {categoryName}</h2>
+            {vocabList.length !== 0 ? (
+              <p>total {vocabList.length} words</p>
+            ) : (
+              <p>No data available</p>
+            )}
           </StCatTitle>
           <div>
-            <StToggle onClick={toggleVisibility}>
-              {hideMeaning ? "Show Meaning" : "Hide Meaning"}
-            </StToggle>
-            <StList>
-              {vocabList.map((rowData, index) => (
-                <VocabListItem
-                  key={index}
-                  rowData={rowData}
-                  hideMeaning={hideMeaning}
-                />
-              ))}
-            </StList>
+            {showTest ? (
+              <StList>
+                {vocabList.map((rowData, index) => (
+                  <MultipleChoiceItem
+                    key={index}
+                    rowData={rowData}
+                    randomChoices={generateRandomChoices(rowData, vocabList)}
+                  />
+                ))}
+              </StList>
+            ) : (
+              <>
+                {vocabList.length !== 0 ? (
+                  <StToggle onClick={toggleVisibility}>
+                    {hideMeaning ? "Show Meaning" : "Hide Meaning"}
+                  </StToggle>
+                ) : (
+                  ""
+                )}
+                <StList>
+                  {vocabList.map((rowData, index) => (
+                    <VocabListItem
+                      key={index}
+                      rowData={rowData}
+                      hideMeaning={hideMeaning}
+                    />
+                  ))}
+                </StList>
+              </>
+            )}
           </div>
         </>
       )}
     </StWrapper>
   );
+}
+
+function generateRandomChoices(rowData: RowData, vocabList: RowData[]) {
+  let otherColumnValues = vocabList
+    .filter((item) => item.columnA !== rowData.columnA)
+    .map((item) => item.columnA);
+  otherColumnValues = shuffle(otherColumnValues);
+
+  const shuffledChoices = shuffle([
+    rowData.columnA,
+    ...otherColumnValues.slice(0, 3),
+  ]);
+
+  return shuffledChoices;
+}
+
+function shuffle(array: string[]) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 }
 
 const StWrapper = styled.div`
@@ -140,12 +185,14 @@ const StCatTitle = styled.div`
   padding: 8px;
   p {
     font-size: 12px;
+    padding: 2px;
   }
 `;
 
 const StToggle = styled.button`
   background-color: #f0f0f0;
   padding: 10px 20px;
+  margin: 5px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
