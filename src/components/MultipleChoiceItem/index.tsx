@@ -55,7 +55,7 @@ const MultipleChoiceItem: React.FC<{
               )}
             </>
           ) : (
-            <p>No examples</p>
+            <p>sorry no examples</p>
           )}
         </>
       )}

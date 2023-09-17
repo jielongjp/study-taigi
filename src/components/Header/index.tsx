@@ -9,10 +9,10 @@ const Header: React.FC = () => {
           <li>
             <Link href="/">Learn Taiwanese Home</Link>
           </li>
-          {/* <li>
+          <li className="-about">
             <Link href="/about">About</Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/contact">Contact</Link>
           </li> */}
         </ul>
@@ -33,10 +33,25 @@ const StNav = styled.nav`
     padding: 0;
     display: flex;
     justify-content: space-around;
+    position: relative;
+    align-items: center;
   }
 
   li {
     margin: 0;
+    padding-right: 12px;
+  }
+
+  .-about {
+    position: absolute;
+    right: 4px;
+
+    @media (max-width: 800px) {
+      margin: 5px 2%;
+      padding-left: 10px;
+      border-left: 1px solid;
+      font-size: 12px;
+    }
   }
 
   a {

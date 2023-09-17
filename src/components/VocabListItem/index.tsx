@@ -32,7 +32,7 @@ const VocabListItem: React.FC<{ rowData: RowData; hideMeaning: boolean }> = ({
       </StExamplesButton>
       {showExamples && (
         <>
-          {!hideMeaning && <p>{rowData.columnG || "No examples"}</p>}
+          {!hideMeaning && <p>{rowData.columnG || "sorry no examples"}</p>}
           <p>{rowData.columnH}</p>
           {rowData.columnI ? (
             <StAudio>

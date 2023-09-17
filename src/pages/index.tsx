@@ -20,7 +20,7 @@ export default function Home() {
       <main>
         <StTitle>Taiwanese Hokkien Vocab</StTitle>
         <CategoryCardList />
-        <StFeatured>This weeks featured vocab:</StFeatured>
+        <StFeatured>This weeks featured vocab</StFeatured>
         <VocabCardList spreadsheetUrl={spreadsheetURL} categoryName="colors" />
       </main>
     </>
