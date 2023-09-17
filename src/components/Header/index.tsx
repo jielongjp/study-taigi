@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import styled from 'styled-components';
+import Link from "next/link";
+import styled from "styled-components";
 
 const Header: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
 };
 
 const StHeaderContainer = styled.header`
-  background-color: #333;
+  background-color: #052445;
   color: #fff;
   padding: 1rem;
 `;

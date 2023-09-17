@@ -45,7 +45,7 @@ const StLinkList = styled.ul`
     display: inline-block;
     font-size: 24px;
     padding: 20px; 30px;
-    background-color: #0b5882;
+    background-color: #093563;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;

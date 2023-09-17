@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
 };
 
 const StFooterContainer = styled.footer`
-  background-color: #333;
+  background-color: #052445;
   color: #fff;
   text-align: center;
   padding: 1rem;
