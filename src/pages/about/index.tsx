@@ -4,7 +4,7 @@ export default function About() {
   return (
     <StContainer>
       <StTitle>About this site</StTitle>
-      <StHeading>origin</StHeading>
+      <StHeading>Origin</StHeading>
       <StParagraph>
         I created this website mainly due to a lack of learning material for
         Taiwanese Hokkien. <br></br> Data is collected from the MOE Dictionary
@@ -21,14 +21,14 @@ export default function About() {
         This website is fairly new and I do not have a lot of spare time for
         upkeep so there are still a lot of small issues.
       </StParagraph>
-      <StHeading>open source</StHeading>
+      <StHeading>Open source</StHeading>
       <StParagraph>
         This project is open source, if you have an idea for a feature feel free
         to get in touch. If you want to use this project as a base to create
         something else, feel free. Some attribution somewhere in your project
         would be great.
       </StParagraph>
-      <StHeading>about me (the author)</StHeading>
+      <StHeading>About me (the author)</StHeading>
 
       <StParagraph>
         I&apos;m a web developer based in Tokyo. To see more or get in touch

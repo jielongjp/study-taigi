@@ -1,7 +1,10 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const Header: React.FC = () => {
+  const router = useRouter();
+
   return (
     <StHeaderContainer>
       <StNav>
@@ -9,9 +12,11 @@ const Header: React.FC = () => {
           <li>
             <Link href="/">Learn Taiwanese Home</Link>
           </li>
-          <li className="-about">
-            <Link href="/about">About</Link>
-          </li>
+          {router.pathname === "/" || router.pathname.startsWith("/blog/") ? (
+            <li className="-about">
+              <Link href="/about">About</Link>
+            </li>
+          ) : null}
           {/* <li>
             <Link href="/contact">Contact</Link>
           </li> */}

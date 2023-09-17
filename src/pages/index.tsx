@@ -1,12 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import VocabCardList from "../components/VocabCardList";
 import CategoryCardList from "../components/CategoryCardList";
 import { styled } from "styled-components";
-
-const inter = Inter({ subsets: ["latin"] });
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -17,12 +13,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <StMain>
         <StTitle>Taiwanese Hokkien Vocab</StTitle>
         <CategoryCardList />
-        <StFeatured>This weeks featured vocab</StFeatured>
+        <StText>
+          New to Taiwanese? Have a look at some of the top recommended resources{" "}
+          <br></br> for learning Taiwanese Hokkien here:{" "}
+          <Link href="/blog/resources">Learning Taiwanese Resources</Link>
+        </StText>
+        <StText>This weeks featured vocabulary</StText>
         <VocabCardList spreadsheetUrl={spreadsheetURL} categoryName="colors" />
-      </main>
+      </StMain>
     </>
   );
 }
@@ -32,8 +33,18 @@ const spreadsheetURL =
 
 const StTitle = styled.h1`
   margin: 8px;
-  text-align: center;
 `;
-const StFeatured = styled.p`
+const StText = styled.p`
+  margin-bottom: 8px;
+  a {
+    color: #093f78;
+
+    &:hover {
+      color: #1272d8;
+    }
+  }
+`;
+
+const StMain = styled.main`
   text-align: center;
 `;
