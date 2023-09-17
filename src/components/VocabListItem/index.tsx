@@ -15,46 +15,46 @@ const VocabListItem: React.FC<{ rowData: RowData; hideMeaning: boolean }> = ({
   return (
     <StListItem>
       <h3 style={{ display: hideMeaning ? "none" : "block" }}>
-        {rowData.columnA}
+        {rowData.columnB}
       </h3>
-      <p>{rowData.columnB}</p>
+      <p>{rowData.columnC}</p>
       <StAudio>
         <audio controls>
-          <source src={rowData.columnC} type="audio/wav" />
+          <source src={rowData.columnD} type="audio/wav" />
           Your browser does not support the audio element.
         </audio>
       </StAudio>
       <StSmallText style={{ display: hideMeaning ? "none" : "block" }}>
-        定義：{rowData.columnD}
+        釋義：{rowData.columnE}
       </StSmallText>
       <StExamplesButton onClick={() => toggleExamples()}>
         Examples
       </StExamplesButton>
       {showExamples && (
         <>
-          {!hideMeaning && <p>{rowData.columnF || "No examples"}</p>}
-          <p>{rowData.columnG}</p>
-          {rowData.columnH ? (
+          {!hideMeaning && <p>{rowData.columnG || "No examples"}</p>}
+          <p>{rowData.columnH}</p>
+          {rowData.columnI ? (
             <StAudio>
               <audio controls>
-                <source src={rowData.columnH} type="audio/wav" />
+                <source src={rowData.columnI} type="audio/wav" />
                 Your browser does not support the audio element.
               </audio>
             </StAudio>
           ) : null}
 
-          {!hideMeaning && <p>{rowData.columnI}</p>}
-          {!hideMeaning && <p>{rowData.columnK || ""}</p>}
-          {!hideMeaning && <p>{rowData.columnL}</p>}
-          {rowData.columnM ? (
+          {!hideMeaning && <p>{rowData.columnJ}</p>}
+          {!hideMeaning && <p>{rowData.columnL || ""}</p>}
+          {!hideMeaning && <p>{rowData.columnM}</p>}
+          {rowData.columnN ? (
             <StAudio>
               <audio controls>
-                <source src={rowData.columnM} type="audio/wav" />
+                <source src={rowData.columnN} type="audio/wav" />
                 Your browser does not support the audio element.
               </audio>
             </StAudio>
           ) : null}
-          {!hideMeaning && <p>{rowData.columnN}</p>}
+          {!hideMeaning && <p>{rowData.columnO}</p>}
         </>
       )}
     </StListItem>
@@ -62,7 +62,7 @@ const VocabListItem: React.FC<{ rowData: RowData; hideMeaning: boolean }> = ({
 };
 
 const StListItem = styled.li`
-  flex: 0 0 calc(33.3333% - 20px); /* Adjust the width as needed */
+  flex: 0 0 calc(33.3333% - 20px);
   margin: 10px;
   background-color: #f0f0f0;
   padding: 10px;

@@ -1,8 +1,8 @@
-import React from 'react';
-import { GetStaticProps } from 'next';
-import DataList from '../../components/VocabCardList';
-import CategoryNames from '../../utils/CatergoryNames';
-import { styled } from 'styled-components';
+import React from "react";
+import { GetStaticProps } from "next";
+import DataList from "../../components/VocabCardList";
+import CategoryNames from "../../utils/CatergoryNames";
+import { styled } from "styled-components";
 
 interface VocabPageProps {
   categoryName: string;
