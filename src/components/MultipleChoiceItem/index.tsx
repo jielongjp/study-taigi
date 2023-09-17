@@ -72,6 +72,10 @@ const StListItem = styled.li`
   box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.2);
   font-size: 22px;
 
+  &:hover {
+    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  }
+
   @media (max-width: 768px) {
     flex: 0 0 100%;
   }
