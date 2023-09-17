@@ -35,7 +35,7 @@ const StTitle = styled.h1`
   margin: 8px;
 `;
 const StText = styled.p`
-  margin-bottom: 8px;
+  margin: 8px 6px;
   a {
     color: #093f78;
 
