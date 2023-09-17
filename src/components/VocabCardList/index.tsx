@@ -211,7 +211,7 @@ const StList = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 650px) {
     flex-direction: column;
   }
 `;

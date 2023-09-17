@@ -69,7 +69,7 @@ const StListItem = styled.li`
   background-color: #f0f0f0;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.2);
   font-size: 22px;
 
   @media (max-width: 768px) {
