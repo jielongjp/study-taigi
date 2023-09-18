@@ -15,7 +15,10 @@ export default function Home() {
       </Head>
       <StMain>
         <StTitle>Taiwanese Hokkien Vocab</StTitle>
-        <CategoryCardList />
+        <CategoryCardList isHome={true} />
+        <StText>
+          <Link href="/vocab">See all categories</Link>
+        </StText>
         <StText>
           New to the Taiwanese language? Have a look at some of the top
           recommended resources <br></br> for learning Taiwanese Hokkien here:{" "}

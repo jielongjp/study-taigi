@@ -2,15 +2,19 @@ import { styled } from "styled-components";
 import CategoryNames from "../../utils/CatergoryNames";
 import Link from "next/link";
 
-export default function CategoryCardList() {
+export default function CategoryCardList({ isHome }: { isHome: boolean }) {
+  const categoryList = isHome
+    ? Object.keys(CategoryNames).slice(0, 12)
+    : Object.keys(CategoryNames);
+
   return (
     <StWrapper>
       <StTitle>
-        <h2>Vocab Categories</h2>
+        <h2>Categories</h2>
       </StTitle>
       <div>
         <StLinkList>
-          {Object.keys(CategoryNames).map((category) => (
+          {categoryList.map((category) => (
             <li key={category}>
               <Link href={`/vocab/${category}`}>{category}</Link>
             </li>

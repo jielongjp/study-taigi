@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import DataList from "../../components/VocabCardList";
 import CategoryNames from "../../utils/CatergoryNames";
 import { styled } from "styled-components";
+import Link from "next/link";
 
 interface VocabPageProps {
   categoryName: string;
@@ -12,15 +13,19 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
   const spreadsheetUrl = CategoryNames[categoryName];
 
   return (
-    <div>
+    <StContainer>
       <StTitle>Taiwanese Hokkien Vocab</StTitle>
+      <Link href="/vocab">See all categories</Link>
       <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
-    </div>
+    </StContainer>
   );
 };
 
 const StTitle = styled.h1`
   margin: 8px;
+`;
+
+const StContainer = styled.div`
   text-align: center;
 `;
 
