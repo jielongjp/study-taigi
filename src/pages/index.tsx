@@ -17,11 +17,15 @@ export default function Home() {
         <StTitle>Taiwanese Hokkien Vocab</StTitle>
         <CategoryCardList />
         <StText>
-          New to Taiwanese? Have a look at some of the top recommended resources{" "}
-          <br></br> for learning Taiwanese Hokkien here:{" "}
+          New to the Taiwanese language? Have a look at some of the top
+          recommended resources <br></br> for learning Taiwanese Hokkien here:{" "}
           <Link href="/blog/resources">Learning Taiwanese Resources</Link>
         </StText>
-        <StText>This weeks featured vocabulary</StText>
+        <StText>
+          <strong>
+            <br></br>This weeks featured vocabulary
+          </strong>
+        </StText>
         <VocabCardList spreadsheetUrl={spreadsheetURL} categoryName="colors" />
       </StMain>
     </>
