@@ -27,9 +27,11 @@ const VocabListItem: React.FC<{ rowData: RowData; hideMeaning: boolean }> = ({
       <StSmallText style={{ display: hideMeaning ? "none" : "block" }}>
         釋義：{rowData.columnE}
       </StSmallText>
-      <StExamplesButton onClick={() => toggleExamples()}>
-        Examples
-      </StExamplesButton>
+      {rowData.columnG ? (
+        <StExamplesButton onClick={() => toggleExamples()}>
+          Examples
+        </StExamplesButton>
+      ) : null}
       {showExamples && (
         <>
           {!hideMeaning && <p>{rowData.columnG || "sorry no examples"}</p>}
