@@ -127,15 +127,18 @@ export default function VocabList({
           <div>
             {showTest ? (
               <>
-                <p>
-                  For English multiple choice options, click "use English"
-                  before testing.
-                </p>
+                {!showEnglish && (
+                  <p>
+                    For English multiple choice options, click "use English"
+                    before testing.
+                  </p>
+                )}
                 <StList>
                   {vocabList.map((rowData, index) => (
                     <MultipleChoiceItem
                       key={index}
                       rowData={rowData}
+                      showEnglish={showEnglish}
                       randomChoices={generateRandomChoices(
                         rowData,
                         vocabList,

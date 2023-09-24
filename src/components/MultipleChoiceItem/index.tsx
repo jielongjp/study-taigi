@@ -6,7 +6,8 @@ import Choice from "../Choice";
 const MultipleChoiceItem: React.FC<{
   rowData: RowData;
   randomChoices: string[];
-}> = ({ rowData, randomChoices }) => {
+  showEnglish: boolean;
+}> = ({ rowData, randomChoices, showEnglish }) => {
   const [showExamples, setShowExamples] = useState<boolean>(false);
 
   const toggleExamples = () => {
@@ -25,7 +26,11 @@ const MultipleChoiceItem: React.FC<{
       <StSmallText>choose the correct translation:</StSmallText>
       <StMultipleChoice>
         {randomChoices.map((choice, index) => (
-          <Choice key={index} choice={choice} correctChoice={rowData.columnB} />
+          <Choice
+            key={index}
+            choice={choice}
+            correctChoice={showEnglish ? rowData.columnB : rowData.columnA}
+          />
         ))}
       </StMultipleChoice>
       {rowData.columnG && rowData.columnG.includes("Example") ? (
