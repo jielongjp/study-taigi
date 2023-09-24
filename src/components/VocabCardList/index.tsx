@@ -129,8 +129,8 @@ export default function VocabList({
               <>
                 {!showEnglish && (
                   <p>
-                    For English multiple choice options, click "use English"
-                    before testing.
+                    For English multiple choice options, click &quot;use
+                    English&quot; before testing.
                   </p>
                 )}
                 <StList>
