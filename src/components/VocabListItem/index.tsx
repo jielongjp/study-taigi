@@ -2,10 +2,11 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import { RowData } from "../VocabCardList";
 
-const VocabListItem: React.FC<{ rowData: RowData; hideMeaning: boolean }> = ({
-  rowData,
-  hideMeaning,
-}) => {
+const VocabListItem: React.FC<{
+  rowData: RowData;
+  hideMeaning: boolean;
+  showEnglish: boolean;
+}> = ({ rowData, hideMeaning, showEnglish }) => {
   const [showExamples, setShowExamples] = useState<boolean>(false);
 
   const toggleExamples = () => {
@@ -14,49 +15,59 @@ const VocabListItem: React.FC<{ rowData: RowData; hideMeaning: boolean }> = ({
 
   return (
     <StListItem>
-      <h3 style={{ display: hideMeaning ? "none" : "block" }}>
+      <h3 style={{ display: showEnglish && !hideMeaning ? "block" : "none" }}>
         {rowData.columnB}
       </h3>
-      <p>{rowData.columnC}</p>
+      <h3 style={{ display: hideMeaning ? "none" : "block" }}>
+        {rowData.columnC}
+      </h3>
+      <p>{rowData.columnD}</p>
       <StAudio>
         <audio controls>
-          <source src={rowData.columnD} type="audio/wav" />
+          <source src={rowData.columnE} type="audio/wav" />
           Your browser does not support the audio element.
         </audio>
       </StAudio>
       <StSmallText style={{ display: hideMeaning ? "none" : "block" }}>
-        釋義：{rowData.columnE}
+        釋義：{rowData.columnF}
       </StSmallText>
-      {rowData.columnG ? (
+      {rowData.columnG && rowData.columnG.includes("Example") ? (
         <StExamplesButton onClick={() => toggleExamples()}>
           Examples
         </StExamplesButton>
       ) : null}
       {showExamples && (
         <>
-          {!hideMeaning && <p>{rowData.columnG || "sorry no examples"}</p>}
-          <p>{rowData.columnH}</p>
-          {rowData.columnI ? (
+          {!hideMeaning && <p>{rowData.columnH || "sorry no examples"}</p>}
+          <p>{rowData.columnI}</p>
+          {rowData.columnJ ? (
             <StAudio>
               <audio controls>
-                <source src={rowData.columnI} type="audio/wav" />
+                <source src={rowData.columnJ} type="audio/wav" />
                 Your browser does not support the audio element.
               </audio>
             </StAudio>
           ) : null}
 
-          {!hideMeaning && <p>{rowData.columnJ}</p>}
-          {!hideMeaning && <p>{rowData.columnL || ""}</p>}
-          {!hideMeaning && <p>{rowData.columnM}</p>}
-          {rowData.columnN ? (
-            <StAudio>
-              <audio controls>
-                <source src={rowData.columnN} type="audio/wav" />
-                Your browser does not support the audio element.
-              </audio>
-            </StAudio>
-          ) : null}
-          {!hideMeaning && <p>{rowData.columnO}</p>}
+          {!hideMeaning && <p>{rowData.columnK}</p>}
+
+          {rowData.columnL &&
+            rowData.columnL.includes("Example") &&
+            !hideMeaning && (
+              <>
+                <p>{rowData.columnM || ""}</p>
+                <p>{rowData.columnN}</p>
+                {rowData.columnO ? (
+                  <StAudio>
+                    <audio controls>
+                      <source src={rowData.columnO} type="audio/wav" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </StAudio>
+                ) : null}
+                <p>{rowData.columnP || ""}</p>
+              </>
+            )}
         </>
       )}
     </StListItem>

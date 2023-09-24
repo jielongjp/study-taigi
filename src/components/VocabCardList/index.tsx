@@ -6,6 +6,7 @@ import VocabListItem from "../VocabListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
 
 export interface RowData {
+  [key: string]: string | undefined;
   columnA: string;
   columnB: string;
   columnC: string;
@@ -21,6 +22,7 @@ export interface RowData {
   columnM?: string;
   columnN?: string;
   columnO?: string;
+  columnP?: string;
 }
 
 interface VocabListProps {
@@ -36,6 +38,7 @@ export default function VocabList({
   const [hideMeaning, setHideMeaning] = useState(false);
   const [showTest, setShowTest] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showEnglish, setShowEnglish] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -55,26 +58,27 @@ export default function VocabList({
             columnD: cells[3]?.textContent || "",
             columnE: cells[4]?.textContent || "",
             columnF: cells[5]?.textContent || "",
-            columnK: cells[10]?.textContent || "",
+            columnG: cells[6]?.textContent || "",
+            columnL: cells[11]?.textContent || "",
           };
 
-          if (rowData.columnF && rowData.columnF.includes("Example sentence")) {
+          if (rowData.columnG && rowData.columnG.includes("Example sentence")) {
             rowData = {
               ...rowData,
-              columnG: cells[6]?.textContent || "",
               columnH: cells[7]?.textContent || "",
               columnI: cells[8]?.textContent || "",
               columnJ: cells[9]?.textContent || "",
+              columnK: cells[10]?.textContent || "",
             };
           }
 
-          if (rowData.columnK && rowData.columnK.includes("Example sentence")) {
+          if (rowData.columnL && rowData.columnL.includes("Example sentence")) {
             rowData = {
               ...rowData,
-              columnL: cells[11]?.textContent || "",
               columnM: cells[12]?.textContent || "",
               columnN: cells[13]?.textContent || "",
               columnO: cells[14]?.textContent || "",
+              columnP: cells[15]?.textContent || "",
             };
           }
 
@@ -97,6 +101,10 @@ export default function VocabList({
 
   const toggleTest = () => {
     setShowTest(!showTest);
+  };
+
+  const toggleEnglish = () => {
+    setShowEnglish(!showEnglish);
   };
 
   return (
@@ -123,16 +131,27 @@ export default function VocabList({
                   <MultipleChoiceItem
                     key={index}
                     rowData={rowData}
-                    randomChoices={generateRandomChoices(rowData, vocabList)}
+                    randomChoices={generateRandomChoices(
+                      rowData,
+                      vocabList,
+                      showEnglish ? "columnB" : "columnA"
+                    )}
                   />
                 ))}
               </StList>
             ) : (
               <>
                 {vocabList.length !== 0 ? (
-                  <StToggle onClick={toggleVisibility}>
-                    {hideMeaning ? "Show Meaning" : "Hide Meaning"}
-                  </StToggle>
+                  <>
+                    <StToggle onClick={toggleVisibility}>
+                      {hideMeaning ? "Show Meaning" : "Hide Meaning"}
+                    </StToggle>
+                    {!hideMeaning && (
+                      <StToggle onClick={toggleEnglish}>
+                        {showEnglish ? "Hide English" : "Use English"}
+                      </StToggle>
+                    )}
+                  </>
                 ) : (
                   ""
                 )}
@@ -142,6 +161,7 @@ export default function VocabList({
                       key={index}
                       rowData={rowData}
                       hideMeaning={hideMeaning}
+                      showEnglish={showEnglish}
                     />
                   ))}
                 </StList>
@@ -154,14 +174,19 @@ export default function VocabList({
   );
 }
 
-function generateRandomChoices(rowData: RowData, vocabList: RowData[]) {
+function generateRandomChoices(
+  rowData: RowData,
+  vocabList: RowData[],
+  columnName: string
+) {
   let otherColumnValues = vocabList
-    .filter((item) => item.columnA !== rowData.columnA)
-    .map((item) => item.columnA);
+    .filter((item) => item[columnName] !== rowData[columnName])
+    .map((item) => item[columnName]) as string[];
+
   otherColumnValues = shuffle(otherColumnValues);
 
   const shuffledChoices = shuffle([
-    rowData.columnA,
+    rowData[columnName] || "",
     ...otherColumnValues.slice(0, 3),
   ]);
 

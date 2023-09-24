@@ -15,37 +15,39 @@ const MultipleChoiceItem: React.FC<{
 
   return (
     <StListItem>
-      <p>{rowData.columnC}</p>
+      <p>{rowData.columnD}</p>
       <StAudio>
         <audio controls>
-          <source src={rowData.columnD} type="audio/wav" />
+          <source src={rowData.columnE} type="audio/wav" />
           Your browser does not support the audio element.
         </audio>
       </StAudio>
-      <StSmallText>choose the correct Mandarin translation:</StSmallText>
+      <StSmallText>choose the correct translation:</StSmallText>
       <StMultipleChoice>
         {randomChoices.map((choice, index) => (
-          <Choice key={index} choice={choice} correctChoice={rowData.columnA} />
+          <Choice key={index} choice={choice} correctChoice={rowData.columnB} />
         ))}
       </StMultipleChoice>
-      <StExamplesButton onClick={() => toggleExamples()}>
-        Examples
-      </StExamplesButton>
+      {rowData.columnG && rowData.columnG.includes("Example") ? (
+        <StExamplesButton onClick={() => toggleExamples()}>
+          Examples
+        </StExamplesButton>
+      ) : null}
       {showExamples && (
         <>
-          {rowData.columnF && rowData.columnF.includes("Example sentence") ? (
+          {rowData.columnG && rowData.columnG.includes("Example sentence") ? (
             <>
-              <p>{rowData.columnH}</p>
-              {rowData.columnI && (
+              <p>{rowData.columnI}</p>
+              {rowData.columnJ && (
                 <StAudio>
                   <audio controls>
-                    <source src={rowData.columnI} type="audio/wav" />
+                    <source src={rowData.columnK} type="audio/wav" />
                     Your browser does not support the audio element.
                   </audio>
                 </StAudio>
               )}
-              {rowData.columnM && <p>{rowData.columnM}</p>}
-              {rowData.columnN && (
+              {rowData.columnL && <p>{rowData.columnL}</p>}
+              {rowData.columnM && (
                 <StAudio>
                   <audio controls>
                     <source src={rowData.columnN} type="audio/wav" />
