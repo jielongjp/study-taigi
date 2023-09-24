@@ -126,19 +126,25 @@ export default function VocabList({
           </StCatTitle>
           <div>
             {showTest ? (
-              <StList>
-                {vocabList.map((rowData, index) => (
-                  <MultipleChoiceItem
-                    key={index}
-                    rowData={rowData}
-                    randomChoices={generateRandomChoices(
-                      rowData,
-                      vocabList,
-                      showEnglish ? "columnB" : "columnA"
-                    )}
-                  />
-                ))}
-              </StList>
+              <>
+                <p>
+                  For English multiple choice options, click "use English"
+                  before testing.
+                </p>
+                <StList>
+                  {vocabList.map((rowData, index) => (
+                    <MultipleChoiceItem
+                      key={index}
+                      rowData={rowData}
+                      randomChoices={generateRandomChoices(
+                        rowData,
+                        vocabList,
+                        showEnglish ? "columnB" : "columnA"
+                      )}
+                    />
+                  ))}
+                </StList>
+              </>
             ) : (
               <>
                 {vocabList.length !== 0 ? (
