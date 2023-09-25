@@ -27,13 +27,18 @@ const Choice: React.FC<{
 const StChoice = styled.li`
   padding: 10px;
   cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #85a3c3;
+  }
 
   &.green {
-    color: green;
+    background-color: #299129;
   }
 
   &.red {
-    color: red;
+    color: #c70505e0;
   }
 `;
 
