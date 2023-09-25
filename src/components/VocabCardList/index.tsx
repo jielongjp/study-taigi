@@ -38,7 +38,7 @@ export default function VocabList({
   const [hideMeaning, setHideMeaning] = useState(false);
   const [showTest, setShowTest] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [showEnglish, setShowEnglish] = useState(false);
+  const [showEnglish, setShowEnglish] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
