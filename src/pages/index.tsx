@@ -29,14 +29,17 @@ export default function Home() {
             <br></br>This weeks featured vocabulary
           </strong>
         </StText>
-        <VocabCardList spreadsheetUrl={spreadsheetURL} categoryName="colors" />
+        <VocabCardList
+          spreadsheetUrl={spreadsheetURL}
+          categoryName="fruit and veg"
+        />
       </StMain>
     </>
   );
 }
 
 const spreadsheetURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=70370957&single=true";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=1626957566&single=true";
 
 const StTitle = styled.h1`
   margin: 8px;
