@@ -16,7 +16,9 @@ export default function CategoryCardList({ isHome }: { isHome: boolean }) {
         <StLinkList>
           {categoryList.map((category) => (
             <li key={category}>
-              <Link href={`/vocab/${category}`}>{category}</Link>
+              <Link href={`/vocab/${category}`}>
+                {category.replace(/_/g, " ")}
+              </Link>
             </li>
           ))}
         </StLinkList>

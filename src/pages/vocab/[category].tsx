@@ -4,6 +4,7 @@ import DataList from "../../components/VocabCardList";
 import CategoryNames from "../../utils/CatergoryNames";
 import { styled } from "styled-components";
 import Link from "next/link";
+import Head from "next/head";
 
 interface VocabPageProps {
   categoryName: string;
@@ -11,13 +12,25 @@ interface VocabPageProps {
 
 const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
   const spreadsheetUrl = CategoryNames[categoryName];
+  const categoryNameSpaces = categoryName.replace(/_/g, " ");
+  const metaDescription = `Taiwanese vocabulary list for ${categoryNameSpaces}. Learn ${categoryNameSpaces} words in Taiwanese Hokkien with English and Mandarin`;
 
   return (
-    <StContainer>
-      <StTitle>Taiwanese Hokkien Vocab</StTitle>
-      <Link href="/vocab">See all categories</Link>
-      <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
-    </StContainer>
+    <>
+      <Head>
+        <title>
+          Taiwanese Hokkien {categoryNameSpaces} words and vocab test
+        </title>
+        <meta name="description" content={metaDescription} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>{" "}
+      <StContainer>
+        <StTitle>Taiwanese Hokkien Vocab</StTitle>
+        <Link href="/vocab">See all categories</Link>
+        <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
+      </StContainer>
+    </>
   );
 };
 

@@ -117,7 +117,7 @@ export default function VocabList({
             <StToggle onClick={toggleTest}>
               {showTest ? "Hide test" : "Test me"}
             </StToggle>
-            <h2>Category: {categoryName}</h2>
+            <h2>Category: {categoryName.replace(/_/g, " ")}</h2>
             {vocabList.length !== 0 ? (
               <p>total {vocabList.length} words</p>
             ) : (
