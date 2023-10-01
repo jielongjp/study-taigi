@@ -11,7 +11,7 @@ export default function Resources() {
         </title>
         <meta
           name="description"
-          content="The best resources for learning Taiwanese online. Top rated books, websites and audio for learning Taiwanese Hokkien."
+          content="The best resources for how to learn Taiwanese online. Top rated books, websites and audio for learning Taiwanese Hokkien."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
@@ -37,7 +37,7 @@ export default function Resources() {
           few more seasons.
         </StParagraph>
         <StHeading>
-          Southern Hokkien: An Introduction (three textbooks) by SOAS
+          Southern Hokkien: An Introduction (three textbooks) by SOAS/NTU
         </StHeading>
         <StParagraph>
           For a textbook I&apos;d recommend either this one or the Maryknoll
@@ -51,7 +51,14 @@ export default function Resources() {
           improved on the very old Maryknoll books. I found the books to be full
           of great content however with lots of explanations for the learner.
         </StParagraph>
-        <StParagraph></StParagraph>
+        <StParagraph>
+          There are also free lessons online from NTU which use the textbook to
+          teach but it&apos;s completely taught in Mandarin (no subtitles). If
+          you can understand Mandarin Chinese, you can find the lessons here:
+          <a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/104S114">
+            NTU Southern Hokkien Videos
+          </a>
+        </StParagraph>
 
         <StHeading>Maryknoll Taiwanese</StHeading>
         <StParagraph>
@@ -59,9 +66,11 @@ export default function Resources() {
           Christian preachers and you&apos;ll find a lot of vocab related to
           that. The conversations are still relevant for any learners though and
           it&apos;s only a few words here and there. The books are a little old
-          and can be harder to read for those used to modern publications.
+          and can be harder to read for those used to modern publications. The
+          pdf files of the textbooks are available online and you can contact
+          Maryknoll directly to buy audio and printed copies.
         </StParagraph>
-        <StHeading>Reddit r/ohtaigi</StHeading>
+        <StHeading>Reddit r/ohtaigi Taiwanese subreddit</StHeading>
         <StParagraph>
           There&apos;s lots of information in this subreddit aimed for learners
           of Taiwanese. <br></br>
