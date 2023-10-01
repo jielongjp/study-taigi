@@ -5,6 +5,7 @@ export default function VocabIndex() {
   return (
     <StVocabContainer>
       <h1>Taiwanese Hokkien vocabulary categories</h1>
+      <p>Here are all the vocabulary lists on this website.</p>
       <CategoryCardList isHome={false} />
     </StVocabContainer>
   );
