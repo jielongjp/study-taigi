@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Resources() {
   return (
@@ -18,6 +19,12 @@ export default function Resources() {
       </Head>
       <StContainer>
         <StTitle>Resources for learning Taiwanese</StTitle>
+        <StImage>
+          <img
+            src="/resources-taiwanese.webp"
+            alt="Books and resources for learning Taiwanese Hokkien"
+          />
+        </StImage>
         <StHeading>Most recommended</StHeading>
         <StParagraph>
           While there aren&apos;t a lot of resources, a few standout books and
@@ -162,6 +169,18 @@ const StParagraph = styled.p`
 
     &:hover {
       color: #0056b3;
+    }
+  }
+`;
+
+const StImage = styled.div`
+  margin-bottom: 20px;
+  text-align: center;
+  img {
+    max-height: 60vh;
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
   }
 `;
