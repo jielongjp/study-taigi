@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.learntaigi.com
+
+# Sitemaps
+Sitemap: https://www.learntaigi.com/sitemap.xml
