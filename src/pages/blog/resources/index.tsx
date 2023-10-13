@@ -122,8 +122,16 @@ export default function Resources() {
           Similar to anki, memrise is a flashcard learning app/website. There
           are fewer Taiwanese sets here but the interface is a little nicer.
         </StParagraph>
-        <StHeading></StHeading>
-        <StParagraph></StParagraph>
+        <StHeading>Spoken Hokkien</StHeading>
+        <StParagraph>
+          There are a couple of textbooks for learning Taiwanese Hokkien in
+          English available to purchase here:{" "}
+          <a href="https://speaktaiwanese.com/spoken-hokkien/">
+            Spoken Hokkien. I&apos;ve never used them though so I cannot vouch
+            for the material. There is also an intermediate one that follows the
+            first textbook.
+          </a>
+        </StParagraph>
         <StHeading></StHeading>
         <StParagraph></StParagraph>
         <StParagraph></StParagraph>
