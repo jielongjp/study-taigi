@@ -30,14 +30,16 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
         <StTitle>Taiwanese Hokkien Vocab</StTitle>
         <Link href="/vocab">See all categories</Link>
         <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
-        <StParagraph>
-          List of Taiwanese Hokkien vocabulary for {categoryNameSpaces} related
-          words. Click the audio play button to listen to pronunciation. Vocab
-          cards with example sentences will have a button that can be clicked to
-          show examples for each word. Use the &apos;Test me&apos; to test
-          yourself on each of the words and master the {categoryNameSpaces}{" "}
-          vocabulary for Taiwanese.
-        </StParagraph>
+        <StTextContainer>
+          <StParagraph>
+            List of Taiwanese Hokkien vocabulary for {categoryNameSpaces}{" "}
+            related words. Click the audio play button to listen to
+            pronunciation. Vocab cards with example sentences will have a button
+            that can be clicked to show examples for each word. Use the
+            &apos;Test me&apos; to test yourself on each of the words and master
+            the {categoryNameSpaces} vocabulary for Taiwanese.
+          </StParagraph>
+        </StTextContainer>
       </StContainer>
     </>
   );
@@ -49,6 +51,11 @@ const StTitle = styled.h1`
 
 const StContainer = styled.div`
   text-align: center;
+`;
+
+const StTextContainer = styled.div`
+  margin: 0 24px;
+  text-align: left;
 `;
 
 export async function getStaticPaths() {
