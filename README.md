@@ -1,3 +1,14 @@
+# A web app built in next.js for learning Taiwanese Hokkien
+
+Hosted on vercel and accessible here: https://www.learntaigi.com/
+
+Vocabulary data is fetched from https://sutian.moe.edu.tw/zh-hant/ using node.js and stored in google sheets (to keep costs low)
+
+For details on why I built this project see here: https://www.learntaigi.com/about
+
+ <br/>
+--- Next.js boilerplate startup details below ---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
