@@ -6,6 +6,7 @@ import BlogTemplate, {
   StSubtitle,
   StHeading,
 } from "../../../components/BlogTemplate";
+import Link from "next/link";
 
 export default function IntermediateTw() {
   return (
@@ -48,6 +49,25 @@ export default function IntermediateTw() {
           <a href="https://www.huayuworld.org/taiwanese-download.php">
             Beginner to Advanced Material for Taiwanese
           </a>
+        </StParagraph>
+        <StHeading>This site</StHeading>
+        <StParagraph>
+          Start to <Link href="/">learn intermediate Taiwanese Hokkien</Link>{" "}
+          here. This site was created partly due to the lack of resources for
+          learning intermediate Taiwanese online and provide some higher level
+          vocabulary.
+        </StParagraph>
+        <StHeading>Youtube</StHeading>
+        <StParagraph>
+          Searching for learning Taiwanese on Youtube doesn&apos;t reveal much
+          apart from the most basic content in English. However there are a
+          number of channels using Taiwanese that appear when searching in
+          Mandarin Chinese.
+          <a href="https://www.youtube.com/channel/UCZnjTNz5olPNhqMRVEdP4kA">
+            無事做巴士
+          </a>{" "}
+          this channel is great for getting listening practice and often has
+          subtitles on their videos.
         </StParagraph>
       </BlogTemplate>
     </>
