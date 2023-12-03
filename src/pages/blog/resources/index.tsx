@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Resources() {
   return (
@@ -99,7 +100,7 @@ export default function Resources() {
         <StParagraph>
           A website with a large collection of song lyrics written in Taiwanese.
           While some sites often just have the characters only, this one uses
-          POJ too. A great resource for those who like learning through music.
+          POJ too. A great resource for those who like learning through music.{" "}
           <a href="https://taikegui.wordpress.com">taikegui website</a>
         </StParagraph>
         <StSubtitle>
@@ -132,8 +133,14 @@ export default function Resources() {
           I&apos;ve never used them though so I cannot vouch for the material.
           There is also an intermediate one that follows the first textbook.
         </StParagraph>
-        <StHeading></StHeading>
-        <StParagraph></StParagraph>
+        <StHeading>Intermediate to advanced</StHeading>
+        <StParagraph>
+          For a list of materials focused on studying beyond beginner level, see
+          this list:{" "}
+          <Link href="intermediate-taiwanese">
+            Learning intermediate to advanced level Taiwanese.
+          </Link>
+        </StParagraph>
         <StParagraph></StParagraph>
       </StContainer>
     </>
