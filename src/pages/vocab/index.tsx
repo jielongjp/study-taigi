@@ -14,4 +14,9 @@ export default function VocabIndex() {
 const StVocabContainer = styled.div`
   margin: 8vh 0;
   text-align: center;
+
+  h1,
+  p {
+    margin: 12px;
+  }
 `;

@@ -65,11 +65,14 @@ const StLinkList = styled.ul`
   @media (max-width: 400px) {
     li {
       margin-bottom: 5px;
+      width: calc(50% - 20px);
     }
 
     a {
       padding: 8px 16px;
       font-size: 16px;
+      width: 100%;
+      height: 100%
     }
   }
 `;
