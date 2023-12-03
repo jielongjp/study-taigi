@@ -127,10 +127,10 @@ export default function Resources() {
           There are a couple of textbooks for learning Taiwanese Hokkien in
           English available to purchase here:{" "}
           <a href="https://speaktaiwanese.com/spoken-hokkien/">
-            Spoken Hokkien. I&apos;ve never used them though so I cannot vouch
-            for the material. There is also an intermediate one that follows the
-            first textbook.
+            Spoken Hokkien.
           </a>
+          I&apos;ve never used them though so I cannot vouch for the material.
+          There is also an intermediate one that follows the first textbook.
         </StParagraph>
         <StHeading></StHeading>
         <StParagraph></StParagraph>
