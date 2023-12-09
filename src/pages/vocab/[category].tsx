@@ -1,6 +1,6 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import DataList from "../../components/VocabCardList";
+import VocabList from "../../components/VocabCardList";
 import CategoryNames from "../../utils/CatergoryNames";
 import { styled } from "styled-components";
 import Link from "next/link";
@@ -9,10 +9,10 @@ import { StParagraph } from "../../components/BlogTemplate";
 
 interface VocabPageProps {
   categoryName: string;
+  vocabList: [];
 }
 
-const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
-  const spreadsheetUrl = CategoryNames[categoryName];
+const VocabPage: React.FC<VocabPageProps> = ({ categoryName, vocabList }) => {
   const categoryNameSpaces = categoryName.replace(/_/g, " ");
   const metaDescription = `Taiwanese vocabulary list for ${categoryNameSpaces}. Learn ${categoryNameSpaces} words in Taiwanese Hokkien with English and Mandarin`;
 
@@ -29,7 +29,7 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
       <StContainer>
         <StTitle>Taiwanese Hokkien Vocab</StTitle>
         <Link href="/vocab">See all categories</Link>
-        <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
+        <VocabList vocabList={vocabList} categoryName={categoryName} />
         <StTextContainer>
           <StParagraph>
             List of Taiwanese Hokkien vocabulary for {categoryNameSpaces}{" "}
@@ -62,21 +62,35 @@ export async function getStaticPaths() {
   const paths = Object.keys(CategoryNames).map((category) => ({
     params: { category },
   }));
-  console.log(paths);
 
   return {
     paths,
     fallback: false,
   };
 }
+
 export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const categoryName = params.category as string;
 
-  return {
-    props: {
-      categoryName,
-    },
-  };
+  try {
+    const vocabList = require(`../../utils/data/vocab/${categoryName}.json`);
+
+    return {
+      props: {
+        categoryName,
+        vocabList,
+      },
+    };
+  } catch (error) {
+    console.error("Error in getStaticProps:", error);
+
+    return {
+      props: {
+        categoryName,
+        vocabList: [],
+      },
+    };
+  }
 };
 
 export default VocabPage;
