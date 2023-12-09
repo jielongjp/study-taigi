@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap",
+    "fetch-vocab": "node src/utils/googleSheetToJson.js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -20,7 +21,11 @@
     "next-sitemap": "^4.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "^6.0.8",
-    "typescript": "5.2.2"
+    "styled-components": "^6.0.8"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "fs": "^0.0.1-security",
+    "typescript": "^5.3.3"
   }
 }

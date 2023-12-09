@@ -17,6 +17,15 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "ts-node": {
+    "esm": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/utils/CatergoryNames.js",
+    "src/utils/getSheetVocabToJson.js"
+  ],
   "exclude": ["node_modules"]
 }
