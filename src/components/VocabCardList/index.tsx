@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import Loading from "../Loading";
 import VocabListItem from "../VocabListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
+import TestModal from "../TestModal";
 
 export interface RowData {
   [key: string]: string | undefined;
@@ -39,6 +40,8 @@ export default function VocabList({
   const [showTest, setShowTest] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showEnglish, setShowEnglish] = useState(true);
+  const [showTestModal, setShowTestModal] = useState(false);
+  const [TestModalIndex, setTestModalIndex] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -107,6 +110,15 @@ export default function VocabList({
     setShowEnglish(!showEnglish);
   };
 
+  const toggleTestModal = (index: number) => {
+    setTestModalIndex(index);
+    setShowTestModal(true);
+  };
+
+  const closeTestModal = () => {
+    setShowTestModal(false);
+  };
+
   return (
     <StWrapper>
       {loading ? (
@@ -116,6 +128,9 @@ export default function VocabList({
           <StCatTitle>
             <StToggle onClick={toggleTest}>
               {showTest ? "Hide test" : "Test me"}
+            </StToggle>
+            <StToggle onClick={() => toggleTestModal(0)}>
+              Test Popout mode
             </StToggle>
             <h2>Category: {categoryName.replace(/_/g, " ")}</h2>
             {vocabList.length !== 0 ? (
@@ -177,13 +192,20 @@ export default function VocabList({
               </>
             )}
           </div>
+          {showTestModal && (
+            <TestModal
+              vocabList={vocabList}
+              initialIndex={TestModalIndex}
+              onClose={closeTestModal}
+            />
+          )}
         </>
       )}
     </StWrapper>
   );
 }
 
-function generateRandomChoices(
+export function generateRandomChoices(
   rowData: RowData,
   vocabList: RowData[],
   columnName: string
@@ -202,7 +224,7 @@ function generateRandomChoices(
   return shuffledChoices;
 }
 
-function shuffle(array: string[]) {
+export function shuffle(array: string[]) {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
