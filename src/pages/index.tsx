@@ -1,10 +1,15 @@
 import Head from "next/head";
+import { GetStaticProps } from "next";
 import VocabCardList from "../components/VocabCardList";
 import CategoryCardList from "../components/CategoryCardList";
 import { styled } from "styled-components";
 import Link from "next/link";
 
-export default function Home() {
+interface HomeProps {
+  vocabList: [];
+}
+
+export default function Home({ vocabList }: HomeProps) {
   return (
     <>
       <Head>
@@ -38,10 +43,7 @@ export default function Home() {
             <br></br>This weeks featured Taiwanese vocabulary
           </strong>
         </StText>
-        <VocabCardList
-          spreadsheetUrl={spreadsheetURL}
-          categoryName="fruit and veg"
-        />
+        <VocabCardList vocabList={vocabList} categoryName="christmas" />
         <StTextContainer>
           <h2>What is Taiwanese Hokkien?</h2>
           <StText>
@@ -93,9 +95,6 @@ export default function Home() {
   );
 }
 
-const spreadsheetURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=1626957566&single=true";
-
 const StTitle = styled.h1`
   margin: 8px;
 `;
@@ -118,3 +117,25 @@ const StTextContainer = styled.div`
   margin: 0 24px;
   text-align: left;
 `;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const vocabCategory = "christmas";
+
+  try {
+    const vocabList = require(`../utils/data/vocab/${vocabCategory}.json`);
+
+    return {
+      props: {
+        vocabList,
+      },
+    };
+  } catch (error) {
+    console.error("Error :", error);
+
+    return {
+      props: {
+        vocabList: [],
+      },
+    };
+  }
+};

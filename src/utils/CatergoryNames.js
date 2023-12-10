@@ -1,8 +1,5 @@
-interface CategoryName {
-  [category: string]: string; // spreadsheets are publicly posted so no need for env
-}
-
-const CategoryNames: CategoryName = {
+// publicly posted vocab sheets
+const CategoryNames = {
   taiwan_food:
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=1814397280&single=true",
   colors:
@@ -39,4 +36,4 @@ const CategoryNames: CategoryName = {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=312614104&single=true",
 };
 
-export default CategoryNames;
+module.exports = CategoryNames;
