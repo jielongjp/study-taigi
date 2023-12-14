@@ -14,35 +14,33 @@ const VocabListItem: React.FC<{
   };
 
   const addCookie = () => {
-    const existingData: RowData[] = JSON.parse(getCookie("userVocabList")) || [];
+    const existingData: RowData[] =
+      JSON.parse(getCookie("userVocabList")) || [];
 
-    const isAlreadyAdded = existingData.some((item) => item.columnB === rowData.columnB);
+    const isAlreadyAdded = existingData.some(
+      (item) => item.columnB === rowData.columnB
+    );
 
     if (!isAlreadyAdded) {
-      const { columnB, columnC, columnD, columnE, columnF } = rowData;
-      const newData: RowData[] = [...existingData, { columnB, columnC, columnD, columnE, columnF }];
+      const { columnA, columnB, columnC, columnD, columnE, columnF } = rowData;
+      const newData: RowData[] = [
+        ...existingData,
+        { columnA, columnB, columnC, columnD, columnE, columnF },
+      ];
       setCookie("userVocabList", JSON.stringify(newData), 365);
     }
   };
 
-  const getCookie = (name: string): string | null => {
-    const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
-    for (const cookie of cookies) {
-      const [cookieName, cookieValue] = cookie.split("=");
-      if (cookieName === name) {
-        return decodeURIComponent(cookieValue);
-      }
-    }
-    return null;
-  };
+  const removeCookie = () => {
+    const existingData: RowData[] =
+      JSON.parse(getCookie("userVocabList")) || [];
 
-  const setCookie = (name: string, value: string, daysToExpire: number) => {
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + daysToExpire);
+    const newData: RowData[] = existingData.filter(
+      (item) => item.columnB !== rowData.columnB
+    );
 
-    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expirationDate.toUTCString()}; path=/`;
+    setCookie("userVocabList", JSON.stringify(newData), 365);
   };
-  
 
   return (
     <StListItem>
@@ -101,9 +99,34 @@ const VocabListItem: React.FC<{
             )}
         </>
       )}
-      <StAddButton onClick={addCookie}>Add</StAddButton>
+      <StAddRemButton onClick={addCookie}>Add</StAddRemButton>
+      <StAddRemButton onClick={removeCookie}>Remove</StAddRemButton>
     </StListItem>
   );
+};
+
+export const getCookie = (name: string): string | null => {
+  const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split("=");
+    if (cookieName === name) {
+      return decodeURIComponent(cookieValue);
+    }
+  }
+  return null;
+};
+
+export const setCookie = (
+  name: string,
+  value: string,
+  daysToExpire: number
+) => {
+  const expirationDate = new Date();
+  expirationDate.setDate(expirationDate.getDate() + daysToExpire);
+
+  document.cookie = `${name}=${encodeURIComponent(
+    value
+  )}; expires=${expirationDate.toUTCString()}; path=/`;
 };
 
 const StListItem = styled.li`
@@ -149,7 +172,7 @@ const StExamplesButton = styled.button`
   }
 `;
 
-const StAddButton = styled.button`
+const StAddRemButton = styled.button`
   display: flex;
   cursor: pointer;
   background-color: #931010;
@@ -157,6 +180,11 @@ const StAddButton = styled.button`
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
+  margin-top: 8px;
+
+  &:hover {
+    background-color: #c96d6d;
+  }
 `;
 
 export default VocabListItem;
