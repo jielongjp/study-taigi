@@ -13,6 +13,37 @@ const VocabListItem: React.FC<{
     setShowExamples(!showExamples);
   };
 
+  const addCookie = () => {
+    const existingData: RowData[] = JSON.parse(getCookie("userVocabList")) || [];
+
+    const isAlreadyAdded = existingData.some((item) => item.columnB === rowData.columnB);
+
+    if (!isAlreadyAdded) {
+      const { columnB, columnC, columnD, columnE, columnF } = rowData;
+      const newData: RowData[] = [...existingData, { columnB, columnC, columnD, columnE, columnF }];
+      setCookie("userVocabList", JSON.stringify(newData), 365);
+    }
+  };
+
+  const getCookie = (name: string): string | null => {
+    const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
+    for (const cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.split("=");
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue);
+      }
+    }
+    return null;
+  };
+
+  const setCookie = (name: string, value: string, daysToExpire: number) => {
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + daysToExpire);
+
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expirationDate.toUTCString()}; path=/`;
+  };
+  
+
   return (
     <StListItem>
       <h3 style={{ display: showEnglish && !hideMeaning ? "block" : "none" }}>
@@ -70,6 +101,7 @@ const VocabListItem: React.FC<{
             )}
         </>
       )}
+      <StAddButton onClick={addCookie}>Add</StAddButton>
     </StListItem>
   );
 };
@@ -115,6 +147,16 @@ const StExamplesButton = styled.button`
   &:hover {
     background-color: #85a3c3;
   }
+`;
+
+const StAddButton = styled.button`
+  display: flex;
+  cursor: pointer;
+  background-color: #931010;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
 `;
 
 export default VocabListItem;
