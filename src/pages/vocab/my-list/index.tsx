@@ -27,8 +27,21 @@ const MyVocabPage = () => {
       </Head>{" "}
       <StContainer>
         <StTitle>My saved Taiwanese vocabulary</StTitle>
-        <Link href="/vocab">See all vocab categories</Link>
-        <DataList vocabList={userList} />
+        {userList.length === 0 ? (
+          <>
+            <StEmpty>Nothing here yet...</StEmpty>
+            <StEmpty>
+              Click on the link below to start adding some vocabulary cards and
+              review them here.
+            </StEmpty>
+            <Link href="/vocab">See all vocab categories</Link> <StEmpty />
+          </>
+        ) : (
+          <>
+            <Link href="/vocab">See all vocab categories</Link>
+            <DataList vocabList={userList} />
+          </>
+        )}
       </StContainer>
     </>
   );
@@ -40,6 +53,10 @@ const StTitle = styled.h1`
 
 const StContainer = styled.div`
   text-align: center;
+`;
+
+const StEmpty = styled.div`
+  margin: 12px;
 `;
 
 export default MyVocabPage;
