@@ -30,6 +30,7 @@ interface UserVocabListProps {
 }
 
 export default function UserVocabList({ vocabList }: UserVocabListProps) {
+  //TODO: refactor this component and vocabcardlist into one or share common funcs etc
   const [hideMeaning, setHideMeaning] = useState(false);
   const [showTest, setShowTest] = useState(false);
   const [showEnglish, setShowEnglish] = useState(true);
