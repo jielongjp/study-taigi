@@ -1,13 +1,25 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import { RowData } from "../VocabCardList";
+import Toast from "../Toast";
 
 const VocabListItem: React.FC<{
   rowData: RowData;
   hideMeaning: boolean;
   showEnglish: boolean;
-}> = ({ rowData, hideMeaning, showEnglish }) => {
+  isUserList: boolean;
+}> = ({ rowData, hideMeaning, showEnglish, isUserList }) => {
   const [showExamples, setShowExamples] = useState<boolean>(false);
+
+  const [toastMessage, setToastMessage] = useState<string>("");
+
+  const showToast = (message: string) => {
+    setToastMessage(message);
+  };
+
+  const closeToast = () => {
+    setToastMessage("");
+  };
 
   const toggleExamples = () => {
     setShowExamples(!showExamples);
@@ -28,6 +40,11 @@ const VocabListItem: React.FC<{
         { columnA, columnB, columnC, columnD, columnE, columnF },
       ];
       setCookie("userVocabList", JSON.stringify(newData), 365);
+      console.log("card added to list");
+      showToast("card added");
+    } else {
+      console.log("already in list");
+      showToast("card already in list");
     }
   };
 
@@ -40,10 +57,17 @@ const VocabListItem: React.FC<{
     );
 
     setCookie("userVocabList", JSON.stringify(newData), 365);
+    console.log("card removed");
+    showToast("card removed");
   };
 
   return (
     <StListItem>
+      {isUserList ? (
+        <StAddRemButton onClick={removeCookie}>-</StAddRemButton>
+      ) : (
+        <StAddRemButton onClick={addCookie}>+</StAddRemButton>
+      )}
       <h3 style={{ display: showEnglish && !hideMeaning ? "block" : "none" }}>
         {rowData.columnB}
       </h3>
@@ -99,13 +123,12 @@ const VocabListItem: React.FC<{
             )}
         </>
       )}
-      <StAddRemButton onClick={addCookie}>Add</StAddRemButton>
-      <StAddRemButton onClick={removeCookie}>Remove</StAddRemButton>
+      {toastMessage && <Toast message={toastMessage} onClose={closeToast} />}
     </StListItem>
   );
 };
 
-export const getCookie = (name: string): string | null => {
+export const getCookie = (name: string) => {
   const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
   for (const cookie of cookies) {
     const [cookieName, cookieValue] = cookie.split("=");
@@ -113,7 +136,7 @@ export const getCookie = (name: string): string | null => {
       return decodeURIComponent(cookieValue);
     }
   }
-  return null;
+  return "";
 };
 
 export const setCookie = (
@@ -181,6 +204,8 @@ const StAddRemButton = styled.button`
   padding: 5px 10px;
   border-radius: 5px;
   margin-top: 8px;
+  float: right;
+  margin-left: -12px;
 
   &:hover {
     background-color: #c96d6d;

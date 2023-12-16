@@ -20,13 +20,13 @@ const MyVocabPage = () => {
   return (
     <>
       <Head>
-        <title>My saved vocab</title>
+        <title>My saved Taiwanese Hokkien vocabulary</title>
         <meta name="description" content={metaDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>{" "}
       <StContainer>
-        <StTitle>My saved vocab</StTitle>
+        <StTitle>My saved Taiwanese vocabulary</StTitle>
         <Link href="/vocab">See all vocab categories</Link>
         <DataList vocabList={userList} />
       </StContainer>

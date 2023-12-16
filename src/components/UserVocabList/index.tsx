@@ -53,7 +53,7 @@ export default function UserVocabList({ vocabList }: UserVocabListProps) {
           <StToggle onClick={toggleTest}>
             {showTest ? "Hide test" : "Test me"}
           </StToggle>
-          <h2>My Vocab List</h2>
+          <h2>Vocab List</h2>
           {vocabList.length !== 0 ? (
             <p>total {vocabList.length} words</p>
           ) : (
@@ -107,6 +107,7 @@ export default function UserVocabList({ vocabList }: UserVocabListProps) {
                     rowData={rowData}
                     hideMeaning={hideMeaning}
                     showEnglish={showEnglish}
+                    isUserList={true}
                   />
                 ))}
               </StList>
