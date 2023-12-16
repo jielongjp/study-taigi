@@ -13,8 +13,11 @@ const MyVocabPage = () => {
   const metaDescription = `Taiwanese vocabulary list for user. Learn words in Taiwanese Hokkien with English and Mandarin`;
 
   useEffect(() => {
-    const vocabList: RowData[] = JSON.parse(getCookie("userVocabList")) || [];
-    setUserList(vocabList);
+    const cookie = getCookie("userVocabList");
+    if (cookie && cookie.trim() !== "") {
+      const vocabList: RowData[] = JSON.parse(cookie) || [];
+      setUserList(vocabList);
+    }
   }, []);
 
   return (
