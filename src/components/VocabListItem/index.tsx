@@ -26,8 +26,13 @@ const VocabListItem: React.FC<{
   };
 
   const addCookie = () => {
-    const existingData: RowData[] =
-      JSON.parse(getCookie("userVocabList")) || [];
+    const cookie = getCookie("userVocabList");
+
+    let existingData: RowData[] = [];
+
+    if (cookie && cookie.trim() !== "") {
+      existingData = JSON.parse(getCookie("userVocabList")) || [];
+    }
 
     const isAlreadyAdded = existingData.some(
       (item) => item.columnB === rowData.columnB
@@ -49,8 +54,13 @@ const VocabListItem: React.FC<{
   };
 
   const removeCookie = () => {
-    const existingData: RowData[] =
-      JSON.parse(getCookie("userVocabList")) || [];
+    const cookie = getCookie("userVocabList");
+
+    let existingData: RowData[] = [];
+
+    if (cookie && cookie.trim() !== "") {
+      existingData = JSON.parse(getCookie("userVocabList")) || [];
+    }
 
     const newData: RowData[] = existingData.filter(
       (item) => item.columnB !== rowData.columnB
