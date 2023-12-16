@@ -34,7 +34,7 @@ export default function Home() {
           list below.
         </StText>
         <StText>
-          Or if you've been here before, go to your{" "}
+          Or if you&apos;ve been here before, go to your{" "}
           <Link href="/vocab/my-list">own vocabulary list</Link>
         </StText>
         <StText>
