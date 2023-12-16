@@ -54,7 +54,9 @@ export default function UserVocabList({ vocabList }: UserVocabListProps) {
             {showTest ? "Hide test" : "Test me"}
           </StToggle>
           <h2>Vocab List</h2>
-          {vocabList.length !== 0 ? (
+          {vocabList.length === 1 ? (
+            <p>total {vocabList.length} word</p>
+          ) : vocabList.length !== 0 ? (
             <p>total {vocabList.length} words</p>
           ) : (
             <p>No data available</p>
