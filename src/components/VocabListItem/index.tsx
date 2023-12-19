@@ -25,31 +25,44 @@ const VocabListItem: React.FC<{
     setShowExamples(!showExamples);
   };
 
+  const getCookieSize = (cookieName: string): number => {
+    const cookieValue = getCookie(cookieName);
+    return cookieValue ? encodeURIComponent(cookieValue).length : 0;
+  };
+
   const addCookie = () => {
-    const cookie = getCookie("userVocabList");
+    const cookieName = "userVocabList";
+    const maxCookieSize = 4096;
+    const currentCookieSize: number = getCookieSize(cookieName);
 
     let existingData: RowData[] = [];
 
-    if (cookie && cookie.trim() !== "") {
-      existingData = JSON.parse(getCookie("userVocabList")) || [];
+    if (currentCookieSize > maxCookieSize - 150) {
+      console.log("Card limit exceeded");
+      showToast("Card limit exceeded");
+      return;
     }
 
-    const isAlreadyAdded = existingData.some(
+    if (currentCookieSize > 0) {
+      existingData = JSON.parse(getCookie(cookieName)) || [];
+    }
+
+    const isAlreadyAdded: boolean = existingData.some(
       (item) => item.columnB === rowData.columnB
     );
 
     if (!isAlreadyAdded) {
-      const { columnA, columnB, columnC, columnD, columnE, columnF } = rowData;
+      const { columnA, columnB, columnC, columnD, columnE } = rowData;
       const newData: RowData[] = [
         ...existingData,
-        { columnA, columnB, columnC, columnD, columnE, columnF },
+        { columnA, columnB, columnC, columnD, columnE },
       ];
-      setCookie("userVocabList", JSON.stringify(newData), 365);
-      console.log("card added to list");
-      showToast("card added");
+      setCookie(cookieName, JSON.stringify(newData), 365);
+      console.log("Card added to list");
+      showToast("Card added");
     } else {
-      console.log("already in list");
-      showToast("card already in list");
+      console.log("Already in list");
+      showToast("Card already in list");
     }
   };
 
@@ -91,9 +104,11 @@ const VocabListItem: React.FC<{
           Your browser does not support the audio element.
         </audio>
       </StAudio>
-      <StSmallText style={{ display: hideMeaning ? "none" : "block" }}>
-        釋義：{rowData.columnF}
-      </StSmallText>
+      {rowData.columnF && (
+        <StSmallText style={{ display: hideMeaning ? "none" : "block" }}>
+          釋義：{rowData.columnF}
+        </StSmallText>
+      )}
       {rowData.columnG && rowData.columnG.includes("Example") ? (
         <StExamplesButton onClick={() => toggleExamples()}>
           Examples
