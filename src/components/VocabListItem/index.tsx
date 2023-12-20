@@ -25,39 +25,17 @@ const VocabListItem: React.FC<{
     setShowExamples(!showExamples);
   };
 
-  const getCookieSize = (cookieName: string): number => {
-    const cookieValue = getCookie(cookieName);
-    return cookieValue ? encodeURIComponent(cookieValue).length : 0;
-  };
-
-  const addCookie = () => {
-    const cookieName = "userVocabList";
-    const maxCookieSize = 4096;
-    const currentCookieSize: number = getCookieSize(cookieName);
-
-    let existingData: RowData[] = [];
-
-    if (currentCookieSize > maxCookieSize - 150) {
-      console.log("Card limit exceeded");
-      showToast("Card limit exceeded");
-      return;
-    }
-
-    if (currentCookieSize > 0) {
-      existingData = JSON.parse(getCookie(cookieName)) || [];
-    }
-
+  const addToLocalStorage = () => {
+    const key = "userVocabList";
+    let existingData: RowData[] = JSON.parse(localStorage.getItem(key) || '[]');
+  
     const isAlreadyAdded: boolean = existingData.some(
       (item) => item.columnB === rowData.columnB
     );
-
+  
     if (!isAlreadyAdded) {
-      const { columnA, columnB, columnC, columnD, columnE } = rowData;
-      const newData: RowData[] = [
-        ...existingData,
-        { columnA, columnB, columnC, columnD, columnE },
-      ];
-      setCookie(cookieName, JSON.stringify(newData), 365);
+      const newData: RowData[] = [...existingData, rowData];
+      localStorage.setItem(key, JSON.stringify(newData));
       console.log("Card added to list");
       showToast("Card added");
     } else {
@@ -65,31 +43,26 @@ const VocabListItem: React.FC<{
       showToast("Card already in list");
     }
   };
-
-  const removeCookie = () => {
-    const cookie = getCookie("userVocabList");
-
-    let existingData: RowData[] = [];
-
-    if (cookie && cookie.trim() !== "") {
-      existingData = JSON.parse(getCookie("userVocabList")) || [];
-    }
-
+  
+  const removeFromLocalStorage = () => {
+    const key = "userVocabList";
+    let existingData: RowData[] = JSON.parse(localStorage.getItem(key) || '[]');
+  
     const newData: RowData[] = existingData.filter(
       (item) => item.columnB !== rowData.columnB
     );
-
-    setCookie("userVocabList", JSON.stringify(newData), 365);
-    console.log("card removed");
-    showToast("card removed");
+  
+    localStorage.setItem(key, JSON.stringify(newData));
+    console.log("Card removed");
+    showToast("Card removed");
   };
 
   return (
     <StListItem>
       {isUserList ? (
-        <StAddRemButton onClick={removeCookie}>-</StAddRemButton>
+        <StAddRemButton onClick={removeFromLocalStorage}>-</StAddRemButton>
       ) : (
-        <StAddRemButton onClick={addCookie}>+</StAddRemButton>
+        <StAddRemButton onClick={addToLocalStorage}>+</StAddRemButton>
       )}
       <h3 style={{ display: showEnglish && !hideMeaning ? "block" : "none" }}>
         {rowData.columnB}
@@ -153,29 +126,6 @@ const VocabListItem: React.FC<{
   );
 };
 
-export const getCookie = (name: string) => {
-  const cookies = document.cookie.split(";").map((cookie) => cookie.trim());
-  for (const cookie of cookies) {
-    const [cookieName, cookieValue] = cookie.split("=");
-    if (cookieName === name) {
-      return decodeURIComponent(cookieValue);
-    }
-  }
-  return "";
-};
-
-export const setCookie = (
-  name: string,
-  value: string,
-  daysToExpire: number
-) => {
-  const expirationDate = new Date();
-  expirationDate.setDate(expirationDate.getDate() + daysToExpire);
-
-  document.cookie = `${name}=${encodeURIComponent(
-    value
-  )}; expires=${expirationDate.toUTCString()}; path=/`;
-};
 
 const StListItem = styled.li`
   flex: 0 0 calc(33.3333% - 20px);

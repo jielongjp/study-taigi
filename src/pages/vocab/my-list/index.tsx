@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import DataList from "../../../components/UserVocabList";
 import { styled } from "styled-components";
 import { RowData } from "@/components/VocabCardList";
-import { getCookie } from "@/components/VocabListItem";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -13,12 +12,13 @@ const MyVocabPage = () => {
   const metaDescription = `Taiwanese vocabulary list for user. Learn words in Taiwanese Hokkien with English and Mandarin`;
 
   useEffect(() => {
-    const cookie = getCookie("userVocabList");
-    if (cookie && cookie.trim() !== "") {
-      const vocabList: RowData[] = JSON.parse(cookie) || [];
+    const localStorageValue = localStorage.getItem("userVocabList");
+  
+    if (localStorageValue && localStorageValue.trim() !== "") {
+      const vocabList: RowData[] = JSON.parse(localStorageValue) || [];
       setUserList(vocabList);
     }
-  }, []);
+  }, [setUserList]);
 
   return (
     <>
