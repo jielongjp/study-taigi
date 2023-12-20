@@ -41,7 +41,6 @@ const MyVocabPage = () => {
           </>
         ) : (
           <>
-            <p>There is a limit of around 15 cards each time.</p>
             <Link href="/vocab">See all vocab categories</Link>
             <DataList vocabList={userList} />
           </>
