@@ -10,13 +10,17 @@ const Header: React.FC = () => {
       <StNav>
         <ul>
           <li>
-            <Link href="/">Learn Taiwanese Home</Link>
+            <Link href="/">Learn Taigi</Link>
           </li>
           {router.pathname === "/" || router.pathname.startsWith("/blog/") ? (
             <li className="-about">
               <Link href="/about">About</Link>
             </li>
-          ) : null}
+          ) : (
+            <li className="-about">
+              <Link href="/vocab/my-list">My Vocab</Link>
+            </li>
+          )}
           {/* <li>
             <Link href="/contact">Contact</Link>
           </li> */}

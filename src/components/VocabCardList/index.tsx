@@ -171,6 +171,7 @@ export default function VocabList({
                       rowData={rowData}
                       hideMeaning={hideMeaning}
                       showEnglish={showEnglish}
+                      isUserList={false}
                     />
                   ))}
                 </StList>
