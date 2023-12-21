@@ -91,6 +91,10 @@ export default function Home() {
             plenty of other resources for learning Mandarin online, whereas
             Taiwanese has much fewer resources.
           </StText>
+          <StLinkBreak />
+          <StText>
+            To read more <Link href="blog">check out our blog.</Link>
+          </StText>
         </StTextContainer>
       </StMain>
     </>
@@ -121,4 +125,11 @@ const StMain = styled.main`
 const StTextContainer = styled.div`
   margin: 0 24px;
   text-align: left;
+`;
+
+const StLinkBreak = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #555555;
+  margin: 20px 0;
 `;
