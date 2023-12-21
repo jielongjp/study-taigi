@@ -56,6 +56,7 @@ const StTitle = styled.h1`
 
 const StContainer = styled.div`
   text-align: center;
+  min-height: 80vh;
 `;
 
 const StEmpty = styled.div`
