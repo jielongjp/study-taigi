@@ -22,6 +22,9 @@ const StFooterContainer = styled.footer`
   color: #fff;
   text-align: center;
   padding: 1rem;
+  a {
+    color: #59b2f7
+  }
 `;
 
 export default Footer;
