@@ -97,6 +97,9 @@ const StAudio = styled.div`
   padding: 4px;
   audio {
     border-radius: 12px;
+    @media (max-width: 450px) {
+      width: 80%;
+    }
   }
 `;
 
