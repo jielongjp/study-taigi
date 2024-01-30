@@ -19,10 +19,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <StMain>
-        <StTitle>Taiwanese Hokkien Vocab</StTitle>
+        <StTitle>Taiwanese Hokkien Vocabulary</StTitle>
         <CategoryCardList isHome={true} />
         <StText>
-          <Link href="/vocab">See all categories</Link>
+          <Link href="/vocab">See all vocab categories</Link>
         </StText>
         <StText>
           New to the Taiwanese language? Have a look at some of the top
@@ -32,6 +32,10 @@ export default function Home() {
         <StText>
           Or want to get started right away? check out the featured vocabulary
           list below.
+        </StText>
+        <StText>
+          Or if you&apos;ve been here before, go to your{" "}
+          <Link href="/vocab/my-list">own vocabulary list</Link>
         </StText>
         <StText>
           <strong>
@@ -87,6 +91,10 @@ export default function Home() {
             plenty of other resources for learning Mandarin online, whereas
             Taiwanese has much fewer resources.
           </StText>
+          <StLinkBreak />
+          <StText>
+            To read more <Link href="blog">check out our blog.</Link>
+          </StText>
         </StTextContainer>
       </StMain>
     </>
@@ -117,4 +125,11 @@ const StMain = styled.main`
 const StTextContainer = styled.div`
   margin: 0 24px;
   text-align: left;
+`;
+
+const StLinkBreak = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #555555;
+  margin: 20px 0;
 `;

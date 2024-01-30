@@ -1,20 +1,69 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import { RowData } from "../VocabCardList";
+import Toast from "../Toast";
 
 const VocabListItem: React.FC<{
   rowData: RowData;
   hideMeaning: boolean;
   showEnglish: boolean;
-}> = ({ rowData, hideMeaning, showEnglish }) => {
+  isUserList: boolean;
+}> = ({ rowData, hideMeaning, showEnglish, isUserList }) => {
   const [showExamples, setShowExamples] = useState<boolean>(false);
+
+  const [toastMessage, setToastMessage] = useState<string>("");
+
+  const showToast = (message: string) => {
+    setToastMessage(message);
+  };
+
+  const closeToast = () => {
+    setToastMessage("");
+  };
 
   const toggleExamples = () => {
     setShowExamples(!showExamples);
   };
 
+  const addToLocalStorage = () => {
+    const key = "userVocabList";
+    let existingData: RowData[] = JSON.parse(localStorage.getItem(key) || '[]');
+  
+    const isAlreadyAdded: boolean = existingData.some(
+      (item) => item.columnB === rowData.columnB
+    );
+  
+    if (!isAlreadyAdded) {
+      const newData: RowData[] = [...existingData, rowData];
+      localStorage.setItem(key, JSON.stringify(newData));
+      console.log("Card added to list");
+      showToast("Card added");
+    } else {
+      console.log("Already in list");
+      showToast("Card already in list");
+    }
+  };
+  
+  const removeFromLocalStorage = () => {
+    const key = "userVocabList";
+    let existingData: RowData[] = JSON.parse(localStorage.getItem(key) || '[]');
+  
+    const newData: RowData[] = existingData.filter(
+      (item) => item.columnB !== rowData.columnB
+    );
+  
+    localStorage.setItem(key, JSON.stringify(newData));
+    console.log("Card removed");
+    showToast("Card removed");
+  };
+
   return (
     <StListItem>
+      {isUserList ? (
+        <StAddRemButton onClick={removeFromLocalStorage}>-</StAddRemButton>
+      ) : (
+        <StAddRemButton onClick={addToLocalStorage}>+</StAddRemButton>
+      )}
       <h3 style={{ display: showEnglish && !hideMeaning ? "block" : "none" }}>
         {rowData.columnB}
       </h3>
@@ -28,9 +77,11 @@ const VocabListItem: React.FC<{
           Your browser does not support the audio element.
         </audio>
       </StAudio>
-      <StSmallText style={{ display: hideMeaning ? "none" : "block" }}>
-        釋義：{rowData.columnF}
-      </StSmallText>
+      {rowData.columnF && (
+        <StSmallText style={{ display: hideMeaning ? "none" : "block" }}>
+          釋義：{rowData.columnF}
+        </StSmallText>
+      )}
       {rowData.columnG && rowData.columnG.includes("Example") ? (
         <StExamplesButton onClick={() => toggleExamples()}>
           Examples
@@ -70,9 +121,11 @@ const VocabListItem: React.FC<{
             )}
         </>
       )}
+      {toastMessage && <Toast message={toastMessage} onClose={closeToast} />}
     </StListItem>
   );
 };
+
 
 const StListItem = styled.li`
   flex: 0 0 calc(33.3333% - 20px);
@@ -114,6 +167,23 @@ const StExamplesButton = styled.button`
 
   &:hover {
     background-color: #85a3c3;
+  }
+`;
+
+const StAddRemButton = styled.button`
+  display: flex;
+  cursor: pointer;
+  background-color: #931010;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 8px;
+  float: right;
+  margin-left: -12px;
+
+  &:hover {
+    background-color: #c96d6d;
   }
 `;
 
