@@ -195,7 +195,7 @@ export default function VocabList({
           </div>
           {showTestModal && (
             <TestModal
-              vocabList={vocabList}
+              vocabList={shuffleArray(vocabList)}
               initialIndex={TestModalIndex}
               onClose={closeTestModal}
             />
@@ -231,6 +231,12 @@ export function shuffle(array: string[]) {
     const j = Math.floor(Math.random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
+  return shuffled;
+}
+
+function shuffleArray(array: RowData[]): RowData[] {
+  const shuffled = [...array]
+  shuffled.sort(() => Math.random() - 0.5)
   return shuffled;
 }
 
