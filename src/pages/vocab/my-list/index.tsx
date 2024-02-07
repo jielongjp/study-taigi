@@ -45,6 +45,8 @@ const MyVocabPage = () => {
             <DataList vocabList={userList} />
           </>
         )}
+        <p>Please note: Deleting website data will cause your added vocab to be removed. </p>
+        <StEmpty />
       </StContainer>
     </>
   );
