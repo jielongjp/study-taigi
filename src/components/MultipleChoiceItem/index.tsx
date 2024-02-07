@@ -46,16 +46,16 @@ const MultipleChoiceItem: React.FC<{
               {rowData.columnJ && (
                 <StAudio>
                   <audio controls>
-                    <source src={rowData.columnK} type="audio/wav" />
+                    <source src={rowData.columnJ} type="audio/wav" />
                     Your browser does not support the audio element.
                   </audio>
                 </StAudio>
               )}
-              {rowData.columnL && <p>{rowData.columnL}</p>}
-              {rowData.columnM && (
+              {rowData.columnN && <p>{rowData.columnN}</p>}
+              {rowData.columnO && (
                 <StAudio>
                   <audio controls>
-                    <source src={rowData.columnN} type="audio/wav" />
+                    <source src={rowData.columnO} type="audio/wav" />
                     Your browser does not support the audio element.
                   </audio>
                 </StAudio>
