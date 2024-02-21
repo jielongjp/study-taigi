@@ -10,12 +10,12 @@ const BlogPages: BlogPage[]  = [
   {
     slug: 'resources',
     title: 'Resources for learning Taiwanese',
-    preview: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,'
+    preview: "While there aren't a lot of resources, here are a few standout books and sites are available for learning Taiwanese Hokkien in English."
   }, 
   {
     slug: 'intermediate-taiwanese',
     title: 'How to Learn Intermediate Taiwanese',
-    preview: 'established fact that a content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,'
+    preview: 'Taiwanese resources are few and far between and advanced material for learning Taiwanese is even scarcer. Here is a handy list to help you out.'
   },
 ];
 
