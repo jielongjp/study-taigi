@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { RowData } from "../VocabCardList";
+import { RowData } from "@/utils/types";
 import { styled } from "styled-components";
 import Choice from "../Choice";
 

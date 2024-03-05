@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { styled } from "styled-components";
-import { RowData } from "../VocabCardList";
+import { RowData } from "@/utils/types";
 import Toast from "../Toast";
 
 const VocabListItem: React.FC<{
@@ -27,12 +27,12 @@ const VocabListItem: React.FC<{
 
   const addToLocalStorage = () => {
     const key = "userVocabList";
-    let existingData: RowData[] = JSON.parse(localStorage.getItem(key) || '[]');
-  
+    let existingData: RowData[] = JSON.parse(localStorage.getItem(key) || "[]");
+
     const isAlreadyAdded: boolean = existingData.some(
       (item) => item.columnB === rowData.columnB
     );
-  
+
     if (!isAlreadyAdded) {
       const newData: RowData[] = [...existingData, rowData];
       localStorage.setItem(key, JSON.stringify(newData));
@@ -43,15 +43,15 @@ const VocabListItem: React.FC<{
       showToast("Card already in list");
     }
   };
-  
+
   const removeFromLocalStorage = () => {
     const key = "userVocabList";
-    let existingData: RowData[] = JSON.parse(localStorage.getItem(key) || '[]');
-  
+    let existingData: RowData[] = JSON.parse(localStorage.getItem(key) || "[]");
+
     const newData: RowData[] = existingData.filter(
       (item) => item.columnB !== rowData.columnB
     );
-  
+
     localStorage.setItem(key, JSON.stringify(newData));
     console.log("Card removed");
     showToast("Card removed");
@@ -125,7 +125,6 @@ const VocabListItem: React.FC<{
     </StListItem>
   );
 };
-
 
 const StListItem = styled.li`
   flex: 0 0 calc(33.3333% - 20px);
