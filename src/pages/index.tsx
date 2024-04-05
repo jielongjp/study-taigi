@@ -9,11 +9,12 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Learn Taiwanese Hokkien, vocabulary lists and practice cards.
+          Learn Taiwanese Hokkien, vocabulary lists and practice cards with
+          learntaigi
         </title>
         <meta
           name="description"
-          content="Learn Taiwanese Hokkien with the most common vocabulary and vocab categories."
+          content="Learn Taiwanese Hokkien with the most common vocabulary and vocab categories on learntaigi"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
