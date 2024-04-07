@@ -1,6 +1,9 @@
 import { useRouter } from "next/router";
 import BlogPost from "../../components/BlogPost";
 import BlogPosts from "../../utils/BlogPosts";
+import BlogTemplate from "@/components/BlogTemplate";
+import { StTitle } from "@/components/BlogTemplate";
+import BlogLinks from "@/components/BlogLinks";
 
 const BlogPostPage = () => {
   const router = useRouter();
@@ -8,7 +11,14 @@ const BlogPostPage = () => {
   const post = BlogPosts.find((post) => post.slug === slug);
 
   if (!post) {
-    return <div>Post not found</div>;
+    return (
+      <>
+        <BlogTemplate>
+          <StTitle>Post not found</StTitle>
+        </BlogTemplate>
+        <BlogLinks />
+      </>
+    );
   }
 
   return <BlogPost post={post} />;

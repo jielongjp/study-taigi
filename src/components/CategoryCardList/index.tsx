@@ -50,7 +50,7 @@ const StLinkList = styled.ul`
   a {
     display: inline-block;
     font-size: 24px;
-    padding: 20px; 30px;
+    padding: 20px;
     background-color: #093563;
     color: #fff;
     text-decoration: none;
@@ -72,7 +72,7 @@ const StLinkList = styled.ul`
       padding: 8px 16px;
       font-size: 16px;
       width: 100%;
-      height: 100%
+      height: 100%;
     }
   }
 `;

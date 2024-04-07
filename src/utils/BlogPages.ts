@@ -1,4 +1,4 @@
-// for blog index
+// for blog index and links
 
 interface BlogPage {
   slug: string;
