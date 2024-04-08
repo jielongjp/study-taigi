@@ -8,7 +8,7 @@ import BlogTemplate, {
 import Link from "next/link";
 import BlogLinks from "@/components/BlogLinks";
 
-export default function IntermediateTw() {
+export default function StartTaiwanese() {
   return (
     <>
       <Head>

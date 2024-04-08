@@ -25,6 +25,11 @@ const BlogPages: BlogPage[] = [
     preview:
       "Want to learn Taiwanese Hokkien but don't know where to start? this guide will begin your Taiwanese language journey.",
   },
+  {
+    slug: "taiwanese-vs-mandarin",
+    title: "Taiwanese Hokkien vs Mandarin",
+    preview: "The differences between Taiwanese Hokkien and Taiwanese Mandarin",
+  },
 ];
 
 export default BlogPages;
