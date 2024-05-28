@@ -30,6 +30,12 @@ const BlogPages: BlogPage[] = [
     title: "Taiwanese Hokkien vs Mandarin",
     preview: "The differences between Taiwanese Hokkien and Taiwanese Mandarin",
   },
+  {
+    slug: "where-is-taiwanese-hokkien-spoken",
+    title: "Where is Taiwanese Hokkien spoken",
+    preview:
+      "Taiwanese Hokkien and other varients of Hokkien are spoken mostly around Southeast Asia but with some differences.",
+  },
 ];
 
 export default BlogPages;
