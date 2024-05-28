@@ -54,8 +54,9 @@ export default function Home() {
             Taiwan and other Chinese/Taiwanese communities around the world.
             Hokkien is often referred to by a number of different names which
             can be confusing for those not familiar with Chinese languages. Some
-            of these include Hoklo, Southern Min, Fujianese, Minnan and
-            Minnanhua.
+            of these include Hoklo, Southern Min, Fujianese, Minnan, Minnanhua
+            and of course Taigi, the commonly used name for the language in
+            Hokkien itself.
           </StText>
           <h3>Written Taiwanese</h3>
           <StText>
