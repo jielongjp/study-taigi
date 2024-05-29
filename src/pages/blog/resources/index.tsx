@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import BlogLinks from "@/components/BlogLinks";
 
 export default function Resources() {
   return (
@@ -143,6 +144,7 @@ export default function Resources() {
         </StParagraph>
         <StParagraph></StParagraph>
       </StContainer>
+      <BlogLinks />
     </>
   );
 }
@@ -196,6 +198,5 @@ const StImage = styled.div`
     max-width: 100%;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
   }
 `;

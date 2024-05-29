@@ -7,6 +7,7 @@ import BlogTemplate, {
   StHeading,
 } from "../../../components/BlogTemplate";
 import Link from "next/link";
+import BlogLinks from "@/components/BlogLinks";
 
 export default function IntermediateTw() {
   return (
@@ -70,6 +71,7 @@ export default function IntermediateTw() {
           subtitles on their videos.
         </StParagraph>
       </BlogTemplate>
+      <BlogLinks />
     </>
   );
 }

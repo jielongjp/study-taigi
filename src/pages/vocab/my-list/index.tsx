@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import DataList from "../../../components/UserVocabList";
 import { styled } from "styled-components";
-import { RowData } from "@/components/VocabCardList";
+import { RowData } from "@/utils/types";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -13,7 +13,7 @@ const MyVocabPage = () => {
 
   useEffect(() => {
     const localStorageValue = localStorage.getItem("userVocabList");
-  
+
     if (localStorageValue && localStorageValue.trim() !== "") {
       const vocabList: RowData[] = JSON.parse(localStorageValue) || [];
       setUserList(vocabList);
@@ -45,6 +45,11 @@ const MyVocabPage = () => {
             <DataList vocabList={userList} />
           </>
         )}
+        <p>
+          Please note: Deleting website data will cause your added vocab to be
+          removed.{" "}
+        </p>
+        <StEmpty />
       </StContainer>
     </>
   );

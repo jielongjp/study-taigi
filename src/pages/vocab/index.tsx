@@ -1,11 +1,16 @@
 import CategoryCardList from "../../components/CategoryCardList";
+import CategoryNames from "@/utils/CatergoryNames";
 import styled from "styled-components";
 
 export default function VocabIndex() {
+  const categoryTotal = Object.keys(CategoryNames).length;
   return (
     <StVocabContainer>
       <h1>Taiwanese Hokkien vocabulary categories</h1>
-      <p>Here are all the vocabulary lists on this website.</p>
+      <p>
+        Here are all the vocabulary lists on this website. <br /> Total of{" "}
+        {categoryTotal}
+      </p>
       <CategoryCardList isHome={false} />
     </StVocabContainer>
   );

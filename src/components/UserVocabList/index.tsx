@@ -4,26 +4,8 @@ import { styled } from "styled-components";
 import Loading from "../Loading";
 import VocabListItem from "../VocabListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
-
-export interface RowData {
-  [key: string]: string | undefined;
-  columnA: string;
-  columnB: string;
-  columnC: string;
-  columnD: string;
-  columnE?: string;
-  columnF?: string;
-  columnG?: string;
-  columnH?: string;
-  columnI?: string;
-  columnJ?: string;
-  columnK?: string;
-  columnL?: string;
-  columnM?: string;
-  columnN?: string;
-  columnO?: string;
-  columnP?: string;
-}
+import generateRandomChoices from "@/utils/generateRandomChoices";
+import { RowData } from "@/utils/types";
 
 interface UserVocabListProps {
   vocabList: RowData[];
@@ -120,34 +102,6 @@ export default function UserVocabList({ vocabList }: UserVocabListProps) {
       </>
     </StWrapper>
   );
-}
-
-function generateRandomChoices(
-  rowData: RowData,
-  vocabList: RowData[],
-  columnName: string
-) {
-  let otherColumnValues = vocabList
-    .filter((item) => item[columnName] !== rowData[columnName])
-    .map((item) => item[columnName]) as string[];
-
-  otherColumnValues = shuffle(otherColumnValues);
-
-  const shuffledChoices = shuffle([
-    rowData[columnName] || "",
-    ...otherColumnValues.slice(0, 3),
-  ]);
-
-  return shuffledChoices;
-}
-
-function shuffle(array: string[]) {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
 }
 
 const StWrapper = styled.div`
