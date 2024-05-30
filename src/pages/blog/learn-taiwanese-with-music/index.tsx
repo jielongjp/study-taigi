@@ -103,7 +103,7 @@ export default function IntermediateTw() {
           Spotify: Create playlists of Taiwanese Hokkien songs for easy access
           and regular listening.
           <br></br>
-          3. Lyrics Translate: A community-driven website where you can find
+          Lyrics Translate: A community-driven website where you can find
           translations and transliterations of various songs. Usually just
           Chinese characters and English translation however.
         </StParagraph>
