@@ -6,6 +6,7 @@ import VocabListItem from "../VocabListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
 import generateRandomChoices from "@/utils/generateRandomChoices";
 import { RowData } from "@/utils/types";
+import TestModal from "../TestModal";
 
 interface VocabListProps {
   spreadsheetUrl: string;
@@ -110,9 +111,11 @@ export default function VocabList({
             <StToggle onClick={toggleTest}>
               {showTest ? "Hide test" : "Test me"}
             </StToggle>
-            <StToggle onClick={() => toggleTestModal(0)}>
-              Test Popout mode
-            </StToggle>
+            {showTest && (
+              <StToggle onClick={() => toggleTestModal(0)}>
+                Use popout test
+              </StToggle>
+            )}
             <h2>Category: {categoryName.replace(/_/g, " ")}</h2>
             {vocabList.length !== 0 ? (
               <p>total {vocabList.length} words</p>
@@ -185,6 +188,12 @@ export default function VocabList({
       )}
     </StWrapper>
   );
+}
+
+function shuffleArray(array: RowData[]): RowData[] {
+  const shuffled = [...array];
+  shuffled.sort(() => Math.random() - 0.5);
+  return shuffled;
 }
 
 const StWrapper = styled.div`

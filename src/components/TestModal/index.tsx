@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { RowData } from "../VocabCardList";
+import { RowData } from "@/utils/types";
 import MultipleChoiceItem from "../MultipleChoiceItem";
-import { shuffle, generateRandomChoices } from "../VocabCardList";
+import generateRandomChoices from "../../utils/generateRandomChoices";
 
 interface TestModalProps {
   vocabList: RowData[];
