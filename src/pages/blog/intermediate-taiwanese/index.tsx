@@ -5,6 +5,7 @@ import BlogTemplate, {
   StParagraph,
   StSubtitle,
   StHeading,
+  StImage,
 } from "../../../components/BlogTemplate";
 import Link from "next/link";
 import BlogLinks from "@/components/BlogLinks";
@@ -23,6 +24,12 @@ export default function IntermediateTw() {
       </Head>
       <BlogTemplate>
         <StTitle>Learning Taiwanese at intermediate to advanced level</StTitle>
+        <StImage>
+          <img
+            src="/resources-taiwanese.webp"
+            alt="Books and resources for learning intermediate and advanced Taiwanese Hokkien"
+          />
+        </StImage>
         <StParagraph>
           While learning Taiwanese resources are few and far between, advanced
           material for learning Taiwanese is even scarcer. Here are some of the
