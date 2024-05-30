@@ -8,9 +8,15 @@ interface TestModalProps {
   vocabList: RowData[];
   initialIndex: number;
   onClose: () => void;
+  showEnglish: boolean;
 }
 
-const TestModal = ({ vocabList, initialIndex, onClose }: TestModalProps) => {
+const TestModal = ({
+  vocabList,
+  initialIndex,
+  onClose,
+  showEnglish,
+}: TestModalProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const TestModalContentRef = useRef<HTMLDivElement>(null);
 
@@ -42,8 +48,6 @@ const TestModal = ({ vocabList, initialIndex, onClose }: TestModalProps) => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [onClose]);
-
-  let showEnglish = false;
 
   return (
     <StTestModalWrapper>

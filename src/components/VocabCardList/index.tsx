@@ -182,6 +182,7 @@ export default function VocabList({
               vocabList={shuffleArray(vocabList)}
               initialIndex={TestModalIndex}
               onClose={closeTestModal}
+              showEnglish={showEnglish}
             />
           )}
         </>
