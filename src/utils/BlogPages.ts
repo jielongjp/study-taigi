@@ -36,6 +36,12 @@ const BlogPages: BlogPage[] = [
     preview:
       "Taiwanese Hokkien and other varients of Hokkien are spoken mostly around Southeast Asia but with some differences.",
   },
+  {
+    slug: "learn-taiwanese-with-music",
+    title: "Learn Taiwanese With Music and Songs",
+    preview:
+      "The easiest and most fun way to learn Taiwanese is by using music and your favorite songs.",
+  },
 ];
 
 export default BlogPages;
