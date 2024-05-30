@@ -93,10 +93,10 @@ export default function IntermediateTw() {
 
         <StHeading>Online Resources</StHeading>
         <StParagraph>
-          Taikegui: A website with a large collection of song lyrics written in
-          Taiwanese. While some sites often just have the characters only, this
-          one uses POJ too which is essential when learning.{" "}
-          <a href="https://taikegui.wordpress.com">taikegui website</a>
+          <a href="https://taikegui.wordpress.com">Taikegui</a>: A website with
+          a large collection of song lyrics written in Taiwanese. While some
+          sites often just have the characters only, this one uses POJ too which
+          is essential when learning. <br></br>
           YouTube: Where you&apos;ll find the majority of Taiwanese music
           videos, some with subtitles.
           <br></br>
