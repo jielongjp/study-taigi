@@ -4,6 +4,7 @@ import BlogTemplate, {
   StTitle,
   StParagraph,
   StHeading,
+  StImage,
 } from "../../../components/BlogTemplate";
 import Link from "next/link";
 import BlogLinks from "@/components/BlogLinks";
@@ -22,6 +23,12 @@ export default function StartTaiwanese() {
       </Head>
       <BlogTemplate>
         <StTitle>How to Start Learning Taiwanese</StTitle>
+        <StImage>
+          <img
+            src="/img/learning-taiwanese.jpg"
+            alt="How to start learning Taiwanese Hokkien"
+          />
+        </StImage>
         <StParagraph>
           Like any language with difficult pronunciation, it&apos;s best to
           tackle the sounds of the Taiwanese language first. While this can be
