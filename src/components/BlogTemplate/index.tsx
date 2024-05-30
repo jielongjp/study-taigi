@@ -50,4 +50,15 @@ export const StParagraph = styled.p`
   }
 `;
 
+export const StImage = styled.div`
+  margin-bottom: 20px;
+  text-align: center;
+  img {
+    max-height: 60vh;
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+`;
+
 export default BlogTemplate;

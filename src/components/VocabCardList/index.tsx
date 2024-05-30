@@ -6,6 +6,7 @@ import VocabListItem from "../VocabListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
 import generateRandomChoices from "@/utils/generateRandomChoices";
 import { RowData } from "@/utils/types";
+import TestModal from "../TestModal";
 
 interface VocabListProps {
   spreadsheetUrl: string;
@@ -21,6 +22,8 @@ export default function VocabList({
   const [showTest, setShowTest] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showEnglish, setShowEnglish] = useState(true);
+  const [showTestModal, setShowTestModal] = useState(false);
+  const [TestModalIndex, setTestModalIndex] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -89,6 +92,15 @@ export default function VocabList({
     setShowEnglish(!showEnglish);
   };
 
+  const toggleTestModal = (index: number) => {
+    setTestModalIndex(index);
+    setShowTestModal(true);
+  };
+
+  const closeTestModal = () => {
+    setShowTestModal(false);
+  };
+
   return (
     <StWrapper>
       {loading ? (
@@ -99,6 +111,11 @@ export default function VocabList({
             <StToggle onClick={toggleTest}>
               {showTest ? "Hide test" : "Test me"}
             </StToggle>
+            {showTest && (
+              <StToggle onClick={() => toggleTestModal(0)}>
+                Use popout test
+              </StToggle>
+            )}
             <h2>Category: {categoryName.replace(/_/g, " ")}</h2>
             {vocabList.length !== 0 ? (
               <p>total {vocabList.length} words</p>
@@ -160,10 +177,24 @@ export default function VocabList({
               </>
             )}
           </div>
+          {showTestModal && (
+            <TestModal
+              vocabList={shuffleArray(vocabList)}
+              initialIndex={TestModalIndex}
+              onClose={closeTestModal}
+              showEnglish={showEnglish}
+            />
+          )}
         </>
       )}
     </StWrapper>
   );
+}
+
+function shuffleArray(array: RowData[]): RowData[] {
+  const shuffled = [...array];
+  shuffled.sort(() => Math.random() - 0.5);
+  return shuffled;
 }
 
 const StWrapper = styled.div`
