@@ -34,10 +34,7 @@ const TestModal = ({
     const target = e.target as HTMLElement;
     const TestModalContent = TestModalContentRef.current;
 
-    if (TestModalContent && TestModalContent.contains(target)) {
-      console.log("test");
-    } else if (TestModalContent && !TestModalContent.contains(target)) {
-      console.log("outside");
+    if (TestModalContent && !TestModalContent.contains(target)) {
       onClose();
     }
   };
