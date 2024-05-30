@@ -4,6 +4,7 @@ import BlogTemplate, {
   StTitle,
   StParagraph,
   StHeading,
+  StImage,
 } from "../../../components/BlogTemplate";
 import Link from "next/link";
 import BlogLinks from "@/components/BlogLinks";
@@ -24,6 +25,12 @@ export default function TwVsHokkien() {
       </Head>
       <BlogTemplate>
         <StTitle>The difference between Taiwanese vs Mandarin</StTitle>
+        <StImage>
+          <img
+            src="/img/taiwanese-vs-mandarin.jpeg"
+            alt="differences between Taiwanese and Mandarin languages"
+          />
+        </StImage>
         <StParagraph>
           Taiwanese Hokkien is often just referred to as Taiwanese, even though
           there are several languages used in Taiwan. While Taiwanese and
