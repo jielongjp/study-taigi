@@ -14,6 +14,7 @@ interface VocabPageProps {
 const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
   const spreadsheetUrl = CategoryNames[categoryName].url;
   const is_freq = CategoryNames[categoryName].is_freq;
+  const vocab_description = CategoryNames[categoryName].vocab_description;
   const categoryNameSpaces = categoryName.replace(/_/g, " ");
   const metaDescription = `Taiwanese vocabulary list for ${categoryNameSpaces}. Learn ${categoryNameSpaces} words in Taiwanese Hokkien with English and Mandarin`;
 
@@ -84,6 +85,12 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
             </StLinkContainer>
           </>
         )}
+        {vocab_description && (
+          <>
+            <StParagraph>{vocab_description}</StParagraph>
+          </>
+        )}
+
         <Link href="/vocab">See all categories</Link>
         <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
         {!is_freq && (

@@ -1,6 +1,7 @@
 interface Category {
   url: string;
   is_freq?: boolean;
+  vocab_description?: string;
 }
 
 interface CategoryName {
@@ -101,6 +102,11 @@ const CategoryNames: CategoryName = {
   top_3000_to_4000: {
     url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=84457090&single=true",
     is_freq: true,
+  },
+  taiwanese_made_easier_book_one: {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=835144357&single=true",
+    vocab_description:
+      "Basic Taiwanese Hokkien Vocabulary from the Taiwanese Made Easier series book one.",
   },
 };
 

@@ -45,6 +45,15 @@ export default function Resources() {
           Taiwanese Vocabulary Builder. I just wish they had continued with a
           few more seasons.
         </StParagraph>
+        <StHeading>Taiwanese Made Easier</StHeading>
+        <StParagraph>
+          A fairly well structured set of textbooks along with dialogue and
+          vocabulary recordings, these textbook are great for covering the
+          basics plus a bit further. Each lesson has a theme and the recordings
+          are slow and clear making it perfect for those starting out. There are
+          a total of 5 textbooks and some other supplementary material offered
+          on their site. Best of all it&apos;s completely free.
+        </StParagraph>
         <StHeading>
           Southern Hokkien: An Introduction (three textbooks) by SOAS/NTU
         </StHeading>
