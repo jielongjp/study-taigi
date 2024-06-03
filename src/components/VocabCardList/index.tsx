@@ -7,6 +7,7 @@ import MultipleChoiceItem from "../MultipleChoiceItem";
 import generateRandomChoices from "@/utils/generateRandomChoices";
 import { RowData } from "@/utils/types";
 import TestModal from "../TestModal";
+import TestCounter from "../TestCounter";
 
 interface VocabListProps {
   spreadsheetUrl: string;
@@ -112,9 +113,12 @@ export default function VocabList({
               {showTest ? "Hide test" : "Test me"}
             </StToggle>
             {showTest && (
-              <StToggle onClick={() => toggleTestModal(0)}>
-                Use popout test
-              </StToggle>
+              <>
+                <StToggle onClick={() => toggleTestModal(0)}>
+                  Use popout test
+                </StToggle>
+                <TestCounter />
+              </>
             )}
             <h2>Category: {categoryName.replace(/_/g, " ")}</h2>
             {vocabList.length !== 0 ? (
