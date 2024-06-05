@@ -31,17 +31,14 @@ export default function VocabList({
   useEffect(() => {
     async function fetchTotalRows() {
       try {
-        setLoading(true);
         const response = await axios.get(spreadsheetUrl);
         const parser = new DOMParser();
         const doc = parser.parseFromString(response.data, "text/html");
 
         const tableRows = doc.querySelectorAll("tbody tr");
         setTotalRows(tableRows.length);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false);
       }
     }
 
