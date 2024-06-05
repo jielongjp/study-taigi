@@ -28,6 +28,7 @@ export default function VocabList({
 
   useEffect(() => {
     async function fetchData() {
+      const startTime = performance.now();
       try {
         const response = await axios.get(spreadsheetUrl);
         const parser = new DOMParser();
@@ -72,6 +73,8 @@ export default function VocabList({
         });
         setVocabList(dataRows);
         setLoading(false);
+        const endTime = performance.now();
+        console.log(`execution time: ${(endTime - startTime) / 1000} seconds`);
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
