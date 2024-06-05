@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 import Template from "../components/template";
 import { Roboto } from "next/font/google";
 import { Noto_Serif_TC } from "next/font/google";
+import { Provider } from "react-redux";
+import store from "@/store/store";
 
 const MPlus = Noto_Serif_TC({
   weight: "500",
@@ -13,7 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={MPlus.className}>
       <Template>
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
       </Template>
     </main>
   );
