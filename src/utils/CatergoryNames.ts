@@ -118,6 +118,11 @@ const CategoryNames: CategoryName = {
     vocab_description:
       "Basic Taiwanese Hokkien Vocabulary from the Taiwanese Made Easier series book three.",
   },
+  taiwanese_made_easier_book_four: {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=1946346525&single=true",
+    vocab_description:
+      "Basic Taiwanese Hokkien Vocabulary from the Taiwanese Made Easier series book four.",
+  },
 };
 
 export default CategoryNames;
