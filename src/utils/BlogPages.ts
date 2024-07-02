@@ -42,6 +42,11 @@ const BlogPages: BlogPage[] = [
     preview:
       "The easiest and most fun way to learn Taiwanese is by using music and your favorite songs.",
   },
+  {
+    slug: "traditional-taiwanese-food",
+    title: "Traditional Taiwanese Food",
+    preview: "Learn names of popular traditional Taiwanese foods in Hokkien",
+  },
 ];
 
 export default BlogPages;
