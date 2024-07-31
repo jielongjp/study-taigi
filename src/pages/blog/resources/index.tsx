@@ -139,7 +139,7 @@ export default function Resources() {
           English available to purchase here:{" "}
           <a href="https://speaktaiwanese.com/spoken-hokkien/">
             Spoken Hokkien.
-          </a>
+          </a>{" "}
           I&apos;ve never used them though so I cannot vouch for the material.
           There is also an intermediate one that follows the first textbook.
         </StParagraph>
