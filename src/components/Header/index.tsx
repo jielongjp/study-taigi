@@ -10,7 +10,9 @@ const Header: React.FC = () => {
       <StNav>
         <ul>
           <li>
-            <Link href="/">Learn Taigi</Link>
+            <Link href="/">
+              <img src="/favicon.png"></img>Learn Taigi
+            </Link>
           </li>
           {router.pathname === "/" || router.pathname.startsWith("/blog/") ? (
             <li className="-about">
@@ -66,6 +68,14 @@ const StNav = styled.nav`
   a {
     text-decoration: none;
     color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    width: 25px;
+    height: 25px;
+    margin-right: 6px;
   }
 `;
 
