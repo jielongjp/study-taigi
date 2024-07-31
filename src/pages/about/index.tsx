@@ -31,8 +31,13 @@ export default function About() {
       <StHeading>About me (the author)</StHeading>
 
       <StParagraph>
-        I&apos;m a web developer based in Tokyo. To see more or get in touch
-        check out my personal website below.
+        I&apos;m a web developer who spent about 14 years living in Asia. After
+        learning Mandarin Chinese and Japanese to a high level. I noticed a lack
+        of materials and language promotion for Taiwanese Hokkien, especially
+        for common vocabulary lists and so created this site.
+        <br></br>
+        <br></br>To see more or get in touch check out my personal website
+        below.
       </StParagraph>
       <StParagraph>
         <a href="https://jordharris.com"> Jordan Harris web developer</a>
