@@ -170,7 +170,12 @@ export default function Resources() {
           <br></br>
           Mock test audio files for A1/A2 Taiwanese exam. The exam is conducted
           in Mandarin, but can still be used for listening practice even if you
-          don&apos;t understand the questions.
+          don&apos;t understand the questions. <br />
+          If you are in Taiwan you can also find the question booklet to buy at
+          博客來.{" "}
+          <a href="https://www.books.com.tw/products/0010864243">
+            books.com.tw
+          </a>
         </StParagraph>
         <StSubtitle>
           Other resources for learning Taiwanese worth a mention
