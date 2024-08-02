@@ -52,7 +52,10 @@ export default function Resources() {
           basics plus a bit further. Each lesson has a theme and the recordings
           are slow and clear making it perfect for those starting out. There are
           a total of 5 textbooks and some other supplementary material offered
-          on their site. Best of all it&apos;s completely free.
+          on their site. Best of all it&apos;s completely free. <br /> <br />
+          <a href="https://sites.google.com/site/tmemp3/">
+            Taiwanese Made Easier
+          </a>
         </StParagraph>
         <StHeading>
           Southern Hokkien: An Introduction (three textbooks) by SOAS/NTU
@@ -72,7 +75,7 @@ export default function Resources() {
         <StParagraph>
           There are also free lessons online from NTU which use the textbook to
           teach but it&apos;s completely taught in Mandarin (no subtitles). If
-          you can understand Mandarin Chinese, you can find the lessons here:
+          you can understand Mandarin Chinese, you can find the lessons here:{" "}
           <a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/104S114">
             NTU Southern Hokkien Videos
           </a>
@@ -113,14 +116,70 @@ export default function Resources() {
           POJ too. A great resource for those who like learning through music.{" "}
           <a href="https://taikegui.wordpress.com">taikegui website</a>
         </StParagraph>
+        <StHeading>Jen Pin 真平 (Chinese only)</StHeading>
+        <StParagraph>
+          <a href="https://jen-pin.com.tw/material.php">
+            Jen Pin school material
+          </a>
+          <br></br>
+          You can find a wealth of material here made for elementary to high
+          school students in Taiwan covering from around A1 to B2. All the
+          explanations etc are all in Mandarin Chinese so it&apos;s a little
+          difficult to use if you don&apos;t read Mandarin. (There&apos;s also
+          some material for Hakka).
+          <br />
+          The material is meant for school teachers of Taiwanese to use, so some
+          material is locked. Currently most of the elementary level material
+          seems to be locked, but you can find videos on their YouTube channel
+          as well. As it&apos;s aimed at younger children the content can be a
+          bit immature.
+        </StParagraph>
+        <StParagraph>
+          Some of the textbooks used for elementry level can also be found
+          online in the below links. The slides also include links to youtube
+          videos. <br />
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vSHNy8kWCANVVSKG23rpanYt9qBntUrguAJABFXImS4nU_r_1MyNpogKNHSx4xLcw/pub?start=false&loop=false&delayms=5000&slide=id.p1">
+            Book two
+          </a>
+          <br />
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vSDx1m52mh5sOgAvs_CvMOO8K7VAsAKwvkCEUqnvV0P9DzKn4AIepjbmtKxPkwLJQ/pub?start=false&loop=false&delayms=5000&slide=id.p1">
+            Book four
+          </a>
+          <br />
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vQK-FgzOrCkXLfefMBzPdsXEcy0d50dKjNm4GrqWzvOjXNKgoLzEpnsRTL0CwQMZg/pub?start=false&loop=false&delayms=5000&slide=id.p1">
+            Book six
+          </a>
+          <br />
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vTgGYkXg4PQbXo5R_uISOlVCjHyEMpAk-DQc-dNb4elZv2HkoM1u6sk2xG1z9c3Pw/pub?start=false&loop=false&delayms=5000&slide=id.p1">
+            Book eight
+          </a>
+          <br />
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vRWoatye9M8OHHIDyYtBXlOgp87L7aKoDWETg6Y7VkGpLyt-02uFCEQo1HMbb4Zgw/pub?start=false&loop=false&delayms=5000&slide=id.p1">
+            Book ten
+          </a>
+          <br />
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vT-tKe0kSHE3YtTpm3sT_rK6a6u08Q1SudbsF80CeSoFPg16UUPolto09zO_rQ2Ug/pub?start=false&loop=false&delayms=5000&slide=id.p1">
+            Book twelve
+          </a>
+          <br />
+        </StParagraph>
+        <StParagraph>
+          <a href="https://jen-pin.com.tw/news_intro.php?id=187">
+            Taiwanese mock test audio files
+          </a>
+          <br></br>
+          Mock test audio files for A1/A2 Taiwanese exam. The exam is conducted
+          in Mandarin, but can still be used for listening practice even if you
+          don&apos;t understand the questions.
+        </StParagraph>
         <StSubtitle>
           Other resources for learning Taiwanese worth a mention
         </StSubtitle>
         <StHeading>Glossika</StHeading>
         <StParagraph>
-          Although it offers a nice UI and fun method of learning, I&apos;ve
-          heard some of the sentences used are not so commonly used and often
-          sound a little strange.
+          Although it offers a nice interface and fun method of learning,
+          I&apos;ve heard some of the sentences used are not so commonly used
+          and often sound a little strange. It is free however.
         </StParagraph>
         <StHeading>Anki</StHeading>
         <StParagraph>
@@ -151,7 +210,6 @@ export default function Resources() {
             Learning intermediate to advanced level Taiwanese.
           </Link>
         </StParagraph>
-        <StParagraph></StParagraph>
       </StContainer>
       <BlogLinks />
     </>
