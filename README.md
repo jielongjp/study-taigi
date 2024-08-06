@@ -1,10 +1,13 @@
 # A web app built in next.js for learning Taiwanese Hokkien
 
+learntaigi was created to fill a void in vocabulary learning materials for Taiwanese Hokkien, a language critical to Taiwanese culture
+which unfortunately has been starting to decrease in number of speakers.
+
 Hosted on vercel and accessible here: https://www.learntaigi.com/
 
-Vocabulary data is fetched from https://sutian.moe.edu.tw/zh-hant/ using node.js and stored in google sheets (to keep costs low)
+Vocabulary data is fetched from https://sutian.moe.edu.tw/zh-hant/ using node.js and stored in google sheets (to keep running costs low)
 
-For details on why I built this project see here: https://www.learntaigi.com/about
+For more details on why I built this project see here: https://www.learntaigi.com/about
 
  <br/>
 --- Next.js boilerplate startup details below ---
