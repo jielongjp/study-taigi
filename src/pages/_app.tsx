@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Template from "../components/template";
 import { Roboto } from "next/font/google";
 import { Noto_Serif_TC } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const MPlus = Noto_Serif_TC({
   weight: "500",
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <main className={MPlus.className}>
       <Template>
         <Component {...pageProps} />
+        <Analytics />
       </Template>
     </main>
   );
