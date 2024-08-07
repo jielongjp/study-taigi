@@ -11,7 +11,7 @@ const Header: React.FC = () => {
         <ul>
           <li>
             <Link href="/">
-              <img src="/favicon.png"></img>Learn Taigi
+              <img src="/favicon.png" alt="learntaigi logo"></img>Learn Taigi
             </Link>
           </li>
           {router.pathname === "/" || router.pathname.startsWith("/blog/") ? (
