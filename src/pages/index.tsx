@@ -3,6 +3,7 @@ import VocabCardList from "../components/VocabCardList";
 import CategoryCardList from "../components/CategoryCardList";
 import { styled } from "styled-components";
 import Link from "next/link";
+import CategoryNames from "@/utils/CatergoryNames";
 
 export default function Home() {
   return (
@@ -40,12 +41,12 @@ export default function Home() {
         </StText>
         <StText>
           <strong>
-            <br></br>This weeks featured Taiwanese vocabulary
+            <br></br>Current featured Taiwanese vocabulary
           </strong>
         </StText>
         <VocabCardList
           spreadsheetUrl={spreadsheetURL}
-          categoryName="fruit and veg"
+          categoryName={categoryName}
         />
         <StTextContainer>
           <h2>What is Taiwanese Hokkien?</h2>
@@ -103,8 +104,22 @@ export default function Home() {
   );
 }
 
-const spreadsheetURL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=1626957566&single=true";
+const currentDate = new Date();
+const currentMonth = currentDate.getMonth();
+
+let spreadsheetURL = "";
+let categoryName = "";
+
+if (currentMonth === 11) {
+  spreadsheetURL = CategoryNames["christmas"].url;
+  categoryName = "christmas";
+} else if (currentMonth >= 0 && currentMonth <= 5) {
+  spreadsheetURL = CategoryNames["fruit_and_veg"].url;
+  categoryName = "fruit_and_veg";
+} else if (currentMonth >= 6 && currentMonth <= 10) {
+  spreadsheetURL = CategoryNames["colors"].url;
+  categoryName = "colors";
+}
 
 const StTitle = styled.h1`
   margin: 8px;
