@@ -4,102 +4,111 @@ import CategoryCardList from "../components/CategoryCardList";
 import { styled } from "styled-components";
 import Link from "next/link";
 
-export default function Home() {
+const t = (text: string) => {
+  return text && text.trim() !== "" ? text : null;
+};
+
+export default function Home({
+  translations,
+}: {
+  translations: Record<string, string>;
+}) {
   return (
     <>
       <Head>
-        <title>
-          Learn Taiwanese Hokkien, vocabulary lists and practice cards with
-          learntaigi
-        </title>
+        <title>{t(translations.title) || "Default Title"}</title>
         <meta
           name="description"
-          content="Learn Taiwanese Hokkien with the most common vocabulary and vocab categories on learntaigi"
+          content={t(translations.metaDescription) || "Default Description"}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
       <StMain>
-        <StTitle>Taiwanese Hokkien Vocabulary</StTitle>
+        {t(translations.vocabTitle) && (
+          <StTitle>{translations.vocabTitle}</StTitle>
+        )}
         <CategoryCardList isHome={true} />
-        <StText>
-          <Link href="/vocab">See all vocab categories</Link>
-        </StText>
-        <StText>
-          New to the Taiwanese language? Have a look at some of the top
-          recommended resources <br></br> for learning Taiwanese Hokkien here:{" "}
-          <Link href="/blog/resources">Learning Taiwanese Resources</Link>
-        </StText>
-        <StText>
-          Or want to get started right away? check out the featured vocabulary
-          list below.
-        </StText>
-        <StText>
-          Or if you&apos;ve been here before, go to your{" "}
-          <Link href="/vocab/my-list">own vocabulary list</Link>
-        </StText>
-        <StText>
-          <strong>
-            <br></br>This weeks featured Taiwanese vocabulary
-          </strong>
-        </StText>
+        {t(translations.seeAllVocab) && (
+          <StText>
+            <Link href="/vocab">{translations.seeAllVocab}</Link>
+          </StText>
+        )}
+        {t(translations.newToTaiwanese) && (
+          <StText>
+            {translations.newToTaiwanese}{" "}
+            <Link href="/blog/resources">{translations.learningResources}</Link>
+          </StText>
+        )}
+        {t(translations.getStarted) && (
+          <StText>{translations.getStarted}</StText>
+        )}
+        {t(translations.yourVocabList) && (
+          <StText>
+            {translations.yourVocabList}{" "}
+            <Link href="/vocab/my-list">{translations.yourVocabList}</Link>
+          </StText>
+        )}
+        {t(translations.featuredVocab) && (
+          <StText>
+            <strong>{translations.featuredVocab}</strong>
+          </StText>
+        )}
         <VocabCardList
           spreadsheetUrl={spreadsheetURL}
           categoryName="fruit and veg"
         />
         <StTextContainer>
-          <h2>What is Taiwanese Hokkien?</h2>
-          <StText>
-            Taiwanese or Taiwanese Hokkien is a language commonly spoken in
-            Taiwan and other Chinese/Taiwanese communities around the world.
-            Hokkien is often referred to by a number of different names which
-            can be confusing for those not familiar with Chinese languages. Some
-            of these include Hoklo, Southern Min, Fujianese, Minnan and
-            Minnanhua.
-          </StText>
-          <h3>Written Taiwanese</h3>
-          <StText>
-            How Taiwanese should be written is often a debate amongst Taiwanese
-            speakers and learners. While Taiwan&apos;s Ministry of Education has
-            more recently released a list of recommended Chinese characters for
-            use with Taiwanese, most people are still unsure which characters to
-            use. This means the same word is often written with different
-            characters depending on who is writing. This confusion has always
-            been a challenge with promoting and teaching Taiwanese and is one
-            reason some people prefer to write Taiwanese with the Latin
-            alphabet.
-          </StText>
-          <h3>Taiwanese romanization</h3>
-          <StText>
-            The most popular ways of written Taiwanese with letters (known as
-            romanization or Lomaji) are POJ (Pe̍h-ōe-jī) and Tâi-lô. The former
-            was created by missionaries in the 19th century and Tâi-lô was
-            created by the Taiwanese government, based off POJ. There are other
-            ways of writing Taiwanese, but these are the two most common. Since
-            this site uses data from the MOE, Tâi-lô and the recommended
-            characters from the government are used here.
-          </StText>
-          <h3>Taiwanese Hokkien vs Taiwanese Mandarin</h3>
-          <StText>
-            Although Taiwanese Hokkien is often referred to as simply a dialect,
-            it is not mutually intelligible with Mandarin Chinese and Taiwanese
-            Mandarin. A Taiwanese person who has not grown up speaking Taiwanese
-            or not learnt Taiwanese will not be able to understand Taiwanese
-            Hokkien just from Mandarin. Therefore it is often seen as more
-            correct to refer to them as separate languages. While we have also
-            included the Taiwanese Mandarin characters on this website, the
-            focus here is for learning Taiwanese Hokkien. Luckily there are
-            plenty of other resources for learning Mandarin online, whereas
-            Taiwanese has much fewer resources.
-          </StText>
+          {t(translations.whatIsTaiwanese) && (
+            <h2>{translations.whatIsTaiwanese}</h2>
+          )}
+          {t(translations.taiwaneseDescription) && (
+            <StText>{translations.taiwaneseDescription}</StText>
+          )}
+          {t(translations.writtenTaiwaneseTitle) && (
+            <h3>{translations.writtenTaiwaneseTitle}</h3>
+          )}
+          {t(translations.writtenTaiwaneseDescription) && (
+            <StText>{translations.writtenTaiwaneseDescription}</StText>
+          )}
+          {t(translations.taiwaneseRomanizationTitle) && (
+            <h3>{translations.taiwaneseRomanizationTitle}</h3>
+          )}
+          {t(translations.taiwaneseRomanizationDescription) && (
+            <StText>{translations.taiwaneseRomanizationDescription}</StText>
+          )}
+          {t(translations.taiwaneseVsMandarinTitle) && (
+            <h3>{translations.taiwaneseVsMandarinTitle}</h3>
+          )}
+          {t(translations.taiwaneseVsMandarinDescription) && (
+            <StText>{translations.taiwaneseVsMandarinDescription}</StText>
+          )}
           <StLinkBreak />
-          <StText>
-            To read more <Link href="blog">check out our blog.</Link>
-          </StText>
+          {t(translations.readMore) && (
+            <StText>
+              <Link href="blog">{translations.readMore}</Link>
+            </StText>
+          )}
         </StTextContainer>
       </StMain>
     </>
   );
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  let translations;
+
+  try {
+    translations = await import(`../locales/${locale}/common.json`);
+  } catch (error) {
+    translations = await import("../locales/en/common.json");
+  }
+
+  return {
+    props: {
+      translations: translations.default,
+    },
+  };
 }
 
 const spreadsheetURL =
