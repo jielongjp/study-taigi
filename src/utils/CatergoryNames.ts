@@ -2,6 +2,7 @@ interface Category {
   url: string;
   is_freq?: boolean;
   vocab_description?: string;
+  intro?: string;
 }
 
 interface CategoryName {
@@ -77,6 +78,8 @@ const CategoryNames: CategoryName = {
   },
   japanese_load_words: {
     url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=674875022&single=true",
+    intro:
+      "There are a number of loanwords from Japanese in Taiwanese Hokkien that came from when Taiwan was under Japanese rule.",
   },
   top_4000: {
     url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=1084627403&single=true",
