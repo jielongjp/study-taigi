@@ -40,10 +40,14 @@ export default function Resources() {
           for learning the Taiwanese language, luckily this one is really well
           made and a joy to listen to. It&apos;s easy to tell a lot of planning
           went into this podcast as lessons are well structured and full of
-          knowledge. There are also extra paid materials that can be bought such
-          as worksheets and a vocabulary book, Short Takes: A Scene-based
-          Taiwanese Vocabulary Builder. I just wish they had continued with a
-          few more seasons.
+          knowledge. I just wish they had continued with a few more seasons.
+          <br></br>
+          There are also extra paid materials that can be bought such as
+          worksheets and a vocabulary book, Short Takes: A Scene-based Taiwanese
+          Vocabulary Builder. The vocabulary book in particular is great, the
+          format is simular to a textbook but with a modern and nice layout
+          compared to other textbooks available. You&apos;ll also find cultural
+          details in each lesson related to Hokkien and Taiwanese culture.
         </StParagraph>
         <StHeading>Taiwanese Made Easier</StHeading>
         <StParagraph>
@@ -62,15 +66,17 @@ export default function Resources() {
         </StHeading>
         <StParagraph>
           For a textbook I&apos;d recommend either this one or the Maryknoll
-          textbook written below. Both have good parts and bad parts to them.
-          For these books, I was a bit disappointed that the dialogues have no
-          audio (vocab and grammar examples only). Also the numbered tones
-          instead of tone markers, while are fine early on, become a little
-          distracting later on, especially for those also wanting to learn to
-          read other materials in Taiwanese. I was also hoping for a nicer
-          layout and style for a modern textbook, but found it not that much
-          improved on the very old Maryknoll books. I found the books to be full
-          of great content however with lots of explanations for the learner.
+          textbook written below. Both have good parts and bad parts to them. If
+          you don&apos;t mind a pdf version then Taiwanese Made Easier is also a
+          great choice, especially being free. For the Southern Hokkien books, I
+          was a bit disappointed that the dialogues have no audio (vocab and
+          grammar examples only). Also the numbered tones instead of tone
+          markers, while are fine early on, become a little distracting later
+          on, especially for those also wanting to learn to read other materials
+          in Taiwanese. I was also hoping for a nicer layout and style for a
+          modern textbook, but found it not that much improved on the very old
+          Maryknoll books. I found the books to be full of great content however
+          with lots of explanations for the learner.
         </StParagraph>
         <StParagraph>
           There are also free lessons online from NTU which use the textbook to
@@ -106,8 +112,9 @@ export default function Resources() {
         <StParagraph>
           Don&apos;t be fooled by the title, this book is the most in depth
           guide to Taiwanese grammar you&apos;ll find. The book is really well
-          written and not as difficult to read as some grammar books can be.
-          Philip Lin is also one of the co-hosts of Bitesize Taiwanese.
+          written and not as difficult to read as some grammar books can be. It
+          is a little pricey, but is packed full of information about Taiwanese
+          Hokkien. Philip Lin is also one of the co-hosts of Bitesize Taiwanese.
         </StParagraph>
         <StHeading>Taikegui, Taiwanese song lyrics</StHeading>
         <StParagraph>
