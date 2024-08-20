@@ -17,7 +17,6 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
   const vocab_description = CategoryNames[categoryName].vocab_description;
   const categoryNameSpaces = categoryName.replace(/_/g, " ");
   const metaDescription = `Taiwanese vocabulary list for ${categoryNameSpaces}. Learn ${categoryNameSpaces} words in Taiwanese Hokkien with English and Mandarin`;
-  const intro = CategoryNames[categoryName].intro;
 
   return (
     <>
@@ -93,11 +92,6 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
         )}
 
         <Link href="/vocab">See all categories</Link>
-        {intro && (
-          <>
-            <StParagraph>{intro}</StParagraph>
-          </>
-        )}
         <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
         {!is_freq && (
           <StTextContainer>
