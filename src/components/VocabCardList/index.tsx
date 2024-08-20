@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import Loading from "../Loading";
 import VocabListItem from "../VocabListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
@@ -24,61 +24,121 @@ export default function VocabList({
   const [showEnglish, setShowEnglish] = useState(true);
   const [showTestModal, setShowTestModal] = useState(false);
   const [TestModalIndex, setTestModalIndex] = useState(0);
+  const [totalRows, setTotalRows] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 200;
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchTotalRows() {
       try {
         const response = await axios.get(spreadsheetUrl);
         const parser = new DOMParser();
         const doc = parser.parseFromString(response.data, "text/html");
 
         const tableRows = doc.querySelectorAll("tbody tr");
+        setTotalRows(tableRows.length);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
 
-        const dataRows: RowData[] = Array.from(tableRows).map((row) => {
-          const cells = row.querySelectorAll("td");
-          let rowData: RowData = {
-            columnA: cells[0]?.textContent || "",
-            columnB: cells[1]?.textContent || "",
-            columnC: cells[2]?.textContent || "",
-            columnD: cells[3]?.textContent || "",
-            columnE: cells[4]?.textContent || "",
-            columnF: cells[5]?.textContent || "",
-            columnG: cells[6]?.textContent || "",
-            columnL: cells[11]?.textContent || "",
-          };
+    fetchTotalRows();
+  }, [spreadsheetUrl]);
 
-          if (rowData.columnG && rowData.columnG.includes("Example sentence")) {
-            rowData = {
-              ...rowData,
-              columnH: cells[7]?.textContent || "",
-              columnI: cells[8]?.textContent || "",
-              columnJ: cells[9]?.textContent || "",
-              columnK: cells[10]?.textContent || "",
+  useEffect(() => {
+    async function fetchPageData(page: number) {
+      try {
+        const startTime = performance.now();
+
+        setLoading(true);
+        const response = await axios.get(spreadsheetUrl);
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(response.data, "text/html");
+
+        const tableRows = doc.querySelectorAll("tbody tr");
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        const dataRows: RowData[] = Array.from(tableRows)
+          .slice(start, end)
+          .map((row) => {
+            const cells = row.querySelectorAll("td");
+            let rowData: RowData = {
+              columnA: cells[0]?.textContent || "",
+              columnB: cells[1]?.textContent || "",
+              columnC: cells[2]?.textContent || "",
+              columnD: cells[3]?.textContent || "",
+              columnE: cells[4]?.textContent || "",
+              columnF: cells[5]?.textContent || "",
+              columnG: cells[6]?.textContent || "",
+              columnL: cells[11]?.textContent || "",
             };
-          }
 
-          if (rowData.columnL && rowData.columnL.includes("Example sentence")) {
-            rowData = {
-              ...rowData,
-              columnM: cells[12]?.textContent || "",
-              columnN: cells[13]?.textContent || "",
-              columnO: cells[14]?.textContent || "",
-              columnP: cells[15]?.textContent || "",
-            };
-          }
+            if (
+              rowData.columnG &&
+              rowData.columnG.includes("Example sentence")
+            ) {
+              rowData = {
+                ...rowData,
+                columnH: cells[7]?.textContent || "",
+                columnI: cells[8]?.textContent || "",
+                columnJ: cells[9]?.textContent || "",
+                columnK: cells[10]?.textContent || "",
+              };
+            }
 
-          return rowData;
-        });
+            if (
+              rowData.columnL &&
+              rowData.columnL.includes("Example sentence")
+            ) {
+              rowData = {
+                ...rowData,
+                columnM: cells[12]?.textContent || "",
+                columnN: cells[13]?.textContent || "",
+                columnO: cells[14]?.textContent || "",
+                columnP: cells[15]?.textContent || "",
+              };
+            }
+
+            return rowData;
+          });
+
         setVocabList(dataRows);
         setLoading(false);
+        const endTime = performance.now();
+
+        console.log(`execution time: ${(endTime - startTime) / 1000} seconds`);
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
       }
     }
 
-    fetchData();
-  }, [spreadsheetUrl]);
+    if (totalRows > 0) {
+      fetchPageData(currentPage);
+    }
+  }, [spreadsheetUrl, currentPage, totalRows]);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const renderPagination = () => {
+    const totalPages = Math.ceil(totalRows / rowsPerPage);
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(
+        <StPageButton
+          key={i}
+          onClick={() => handlePageChange(i)}
+          isActive={i === currentPage}
+        >
+          {i}
+        </StPageButton>
+      );
+    }
+    return <StPageWrapper>{pages}</StPageWrapper>;
+  };
 
   const toggleVisibility = () => {
     setHideMeaning(!hideMeaning);
@@ -118,7 +178,7 @@ export default function VocabList({
             )}
             <h2>Category: {categoryName.replace(/_/g, " ")}</h2>
             {vocabList.length !== 0 ? (
-              <p>total {vocabList.length} words</p>
+              <p>total {totalRows} words</p>
             ) : (
               <p>No data available</p>
             )}
@@ -185,6 +245,7 @@ export default function VocabList({
               showEnglish={showEnglish}
             />
           )}
+          {renderPagination()}
         </>
       )}
     </StWrapper>
@@ -233,5 +294,24 @@ const StList = styled.ul`
 
   @media (max-width: 650px) {
     flex-direction: column;
+  }
+`;
+
+const StPageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const StPageButton = styled.button<{ isActive: boolean }>`
+  background-color: ${({ isActive }) => (isActive ? "#0056b3" : "#007bff")};
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  &:hover {
+    background-color: ${({ isActive }) => (isActive ? "#004494" : "#0056b3")};
   }
 `;
