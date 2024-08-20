@@ -32,7 +32,7 @@ const PhrasePage: React.FC<PhrasePageProps> = ({ categoryName }) => {
       <StContainer>
         <StTitle>Taiwanese Hokkien {nameSpacesAndUpper} Phrases</StTitle>
 
-        <Link href="/vocab">See all categories</Link>
+        <Link href="/phrases">See all phrase categories</Link>
         <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
         <StTextContainer>
           <StParagraph>

@@ -49,26 +49,6 @@ export default function PhraseList({
             columnL: cells[11]?.textContent || "",
           };
 
-          if (rowData.columnG && rowData.columnG.includes("Example sentence")) {
-            rowData = {
-              ...rowData,
-              columnH: cells[7]?.textContent || "",
-              columnI: cells[8]?.textContent || "",
-              columnJ: cells[9]?.textContent || "",
-              columnK: cells[10]?.textContent || "",
-            };
-          }
-
-          if (rowData.columnL && rowData.columnL.includes("Example sentence")) {
-            rowData = {
-              ...rowData,
-              columnM: cells[12]?.textContent || "",
-              columnN: cells[13]?.textContent || "",
-              columnO: cells[14]?.textContent || "",
-              columnP: cells[15]?.textContent || "",
-            };
-          }
-
           return rowData;
         });
         setPhraseList(dataRows);
@@ -80,7 +60,7 @@ export default function PhraseList({
     }
 
     fetchData();
-  }, [spreadsheetUrl]);
+  }, []);
 
   const toggleVisibility = () => {
     setHideMeaning(!hideMeaning);
