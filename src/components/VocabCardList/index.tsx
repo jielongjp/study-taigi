@@ -48,8 +48,6 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
     setShowEnglish(!showEnglish);
   };
 
-  console.log(vocabList);
-
   return (
     <StWrapper>
       {loading ? (
