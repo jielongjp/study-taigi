@@ -144,13 +144,13 @@ export default function TraditionalTaiwaneseCuisine() {
         </StParagraph>
         <StParagraph>
           Learn more popular{" "}
-          <Link href="vocab/taiwan_food">
+          <Link href="/vocab/taiwan_food">
             Taiwanese food dishes in Hokkien with this list
           </Link>{" "}
           along with the audio pronunciation.
           <br></br>
           And learn other food related vocab such as with{" "}
-          <Link href="vocab/fruit_and_veg">
+          <Link href="/vocab/fruit_and_veg">
             this vocabulary list for fruit and vegetables.
           </Link>
         </StParagraph>
