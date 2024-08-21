@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { styled } from "styled-components";
 import { RowData } from "@/utils/types";
 
@@ -7,12 +6,6 @@ const PhraseListItem: React.FC<{
   hideMeaning: boolean;
   showEnglish: boolean;
 }> = ({ rowData, hideMeaning, showEnglish }) => {
-  const [showExamples, setShowExamples] = useState<boolean>(false);
-
-  const toggleExamples = () => {
-    setShowExamples(!showExamples);
-  };
-
   return (
     <StListItem>
       <h3 style={{ display: showEnglish && !hideMeaning ? "block" : "none" }}>
@@ -32,45 +25,6 @@ const PhraseListItem: React.FC<{
         <StSmallText style={{ display: hideMeaning ? "none" : "block" }}>
           釋義：{rowData.columnF}
         </StSmallText>
-      )}
-      {rowData.columnG && rowData.columnG.includes("Example") ? (
-        <StExamplesButton onClick={() => toggleExamples()}>
-          Examples
-        </StExamplesButton>
-      ) : null}
-      {showExamples && (
-        <>
-          {!hideMeaning && <p>{rowData.columnH || "sorry no examples"}</p>}
-          <p>{rowData.columnI}</p>
-          {rowData.columnJ ? (
-            <StAudio>
-              <audio controls>
-                <source src={rowData.columnJ} type="audio/wav" />
-                Your browser does not support the audio element.
-              </audio>
-            </StAudio>
-          ) : null}
-
-          {!hideMeaning && <p>{rowData.columnK}</p>}
-
-          {rowData.columnL &&
-            rowData.columnL.includes("Example") &&
-            !hideMeaning && (
-              <>
-                <p>{rowData.columnM || ""}</p>
-                <p>{rowData.columnN}</p>
-                {rowData.columnO ? (
-                  <StAudio>
-                    <audio controls>
-                      <source src={rowData.columnO} type="audio/wav" />
-                      Your browser does not support the audio element.
-                    </audio>
-                  </StAudio>
-                ) : null}
-                <p>{rowData.columnP || ""}</p>
-              </>
-            )}
-        </>
       )}
     </StListItem>
   );
@@ -107,19 +61,6 @@ const StAudio = styled.div`
   padding: 4px;
   audio {
     border-radius: 12px;
-  }
-`;
-
-const StExamplesButton = styled.button`
-  background-color: #f0f0f0;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: #85a3c3;
   }
 `;
 

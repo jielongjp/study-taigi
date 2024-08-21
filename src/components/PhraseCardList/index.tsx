@@ -12,10 +12,7 @@ interface PhraseListProps {
   categoryName: string;
 }
 
-export default function PhraseList({
-  spreadsheetUrl,
-  categoryName,
-}: PhraseListProps) {
+export default function PhraseList({ spreadsheetUrl }: PhraseListProps) {
   const [PhraseList, setPhraseList] = useState<RowData[]>([]);
   const [hideMeaning, setHideMeaning] = useState(false);
   const [showTest, setShowTest] = useState(false);
@@ -169,12 +166,6 @@ export default function PhraseList({
       )}
     </StWrapper>
   );
-}
-
-function shuffleArray(array: RowData[]): RowData[] {
-  const shuffled = [...array];
-  shuffled.sort(() => Math.random() - 0.5);
-  return shuffled;
 }
 
 const StWrapper = styled.div`

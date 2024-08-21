@@ -121,23 +121,6 @@ const StPhraseList = styled.ul`
   }
 `;
 
-const StLink = styled.div`
-  a {
-    display: inline-block;
-    font-size: 24px;
-    padding: 20px;
-    background-color: #016d79;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background-color: #0056b3;
-    }
-  }
-`;
-
 const StList = styled.ul`
   list-style: none;
   padding: 0;

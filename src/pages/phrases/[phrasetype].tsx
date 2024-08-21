@@ -62,7 +62,6 @@ export async function getStaticPaths() {
   const paths = Object.keys(PhraseTypes).map((phrasetype) => ({
     params: { phrasetype },
   }));
-  console.log(paths);
 
   return {
     paths,

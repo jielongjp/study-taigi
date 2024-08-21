@@ -7,10 +7,7 @@ export default function PhraseIndex() {
   return (
     <StVocabContainer>
       <h1>Taiwanese Hokkien phrase lists</h1>
-      <p>
-        Here are all the phrase lists on this website. <br /> Total of{" "}
-        {categoryTotal}
-      </p>
+      <p>Here are all the phrase lists on this website.</p>
       <PhraseTypeIndex isHome={false} />
     </StVocabContainer>
   );
