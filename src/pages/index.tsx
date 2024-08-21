@@ -27,6 +27,9 @@ export default function Home() {
           <Link href="/vocab">See all vocab categories</Link>
         </StText>
         <StText>
+          <Link href="/phrases">Taiwanese Hokkien phrases</Link>
+        </StText>
+        <StText>
           New to the Taiwanese language? Have a look at some of the top
           recommended resources <br></br> for learning Taiwanese Hokkien here:{" "}
           <Link href="/blog/resources">Learning Taiwanese Resources</Link>

@@ -17,6 +17,7 @@ const PhrasePage: React.FC<PhrasePageProps> = ({ categoryName }) => {
     .replace(/_/g, " ")
     .replace(/\b\w/g, (char) => char.toUpperCase());
   const metaDescription = `Taiwanese phrase list for ${nameSpacesAndUpper}. Learn ${nameSpacesAndUpper} phrases in Taiwanese Hokkien with English and Mandarin`;
+  const description = PhraseTypes[categoryName].description;
 
   return (
     <>
@@ -31,7 +32,7 @@ const PhrasePage: React.FC<PhrasePageProps> = ({ categoryName }) => {
       </Head>
       <StContainer>
         <StTitle>Taiwanese Hokkien {nameSpacesAndUpper} Phrases</StTitle>
-
+        {description && <StParagraph>{description}</StParagraph>}
         <Link href="/phrases">See all phrase categories</Link>
         <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
         <StTextContainer>
