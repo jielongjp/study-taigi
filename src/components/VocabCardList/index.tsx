@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import VocabListItem from "../VocabListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
@@ -17,7 +17,15 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
   const [showEnglish, setShowEnglish] = useState(true);
   const [showTestModal, setShowTestModal] = useState(false);
   const [TestModalIndex, setTestModalIndex] = useState(0);
-  const [displayCount, setDisplayCount] = useState(100);
+  const [displayCount, setDisplayCount] = useState(20);
+
+  useEffect(() => {
+    const isMobile = Math.min(window.screen.width, window.screen.height) < 768;
+
+    if (!isMobile) {
+      setDisplayCount(250); // set to 250 for larger devices (desktop)
+    }
+  }, []);
 
   const toggleVisibility = () => {
     setHideMeaning(!hideMeaning);
@@ -41,7 +49,7 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
   };
 
   const handleSeeMore = () => {
-    setDisplayCount((prevCount) => prevCount + 100);
+    setDisplayCount((prevCount) => prevCount + 20);
   };
 
   return (
@@ -116,7 +124,7 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
               </StList>
               {displayCount < vocabList.length && (
                 <StSeeMoreButton onClick={handleSeeMore}>
-                  See next 100
+                  See more words
                 </StSeeMoreButton>
               )}
             </>
