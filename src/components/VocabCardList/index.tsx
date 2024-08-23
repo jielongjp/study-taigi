@@ -17,7 +17,7 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
   const [showEnglish, setShowEnglish] = useState(true);
   const [showTestModal, setShowTestModal] = useState(false);
   const [TestModalIndex, setTestModalIndex] = useState(0);
-  const [displayCount, setDisplayCount] = useState(250);
+  const [displayCount, setDisplayCount] = useState(100);
 
   const toggleVisibility = () => {
     setHideMeaning(!hideMeaning);
@@ -41,7 +41,7 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
   };
 
   const handleSeeMore = () => {
-    setDisplayCount((prevCount) => prevCount + 250);
+    setDisplayCount((prevCount) => prevCount + 100);
   };
 
   return (
@@ -116,7 +116,7 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
               </StList>
               {displayCount < vocabList.length && (
                 <StSeeMoreButton onClick={handleSeeMore}>
-                  Next 250 words
+                  See next 100
                 </StSeeMoreButton>
               )}
             </>
