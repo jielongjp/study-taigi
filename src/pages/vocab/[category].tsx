@@ -71,9 +71,6 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName, vocabList }) => {
             </StTextContainer>
             <StLinkContainer>
               <StLink>
-                <Link href="/vocab/top_4000">top 4000</Link>
-              </StLink>
-              <StLink>
                 <Link href="/vocab/top_500">top 500</Link>
               </StLink>
               <StLink>
@@ -163,7 +160,6 @@ export async function getStaticPaths() {
   const paths = Object.keys(CategoryNames).map((category) => ({
     params: { category },
   }));
-  console.log(paths);
 
   return {
     paths,
@@ -175,6 +171,7 @@ export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
 
   try {
     const vocabList = require(`../../utils/data/vocab/${categoryName}.json`);
+    console.log(vocabList.length);
 
     return {
       props: {

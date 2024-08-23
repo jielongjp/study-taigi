@@ -17,6 +17,7 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
   const [showEnglish, setShowEnglish] = useState(true);
   const [showTestModal, setShowTestModal] = useState(false);
   const [TestModalIndex, setTestModalIndex] = useState(0);
+  const [displayCount, setDisplayCount] = useState(250);
 
   const toggleVisibility = () => {
     setHideMeaning(!hideMeaning);
@@ -37,6 +38,10 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
 
   const closeTestModal = () => {
     setShowTestModal(false);
+  };
+
+  const handleSeeMore = () => {
+    setDisplayCount((prevCount) => prevCount + 250);
   };
 
   return (
@@ -68,7 +73,7 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
                 </p>
               )}
               <StList>
-                {vocabList.map((rowData, index) => (
+                {vocabList.slice(0, displayCount).map((rowData, index) => (
                   <MultipleChoiceItem
                     key={index}
                     rowData={rowData}
@@ -99,7 +104,7 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
                 ""
               )}
               <StList>
-                {vocabList.map((rowData, index) => (
+                {vocabList.slice(0, displayCount).map((rowData, index) => (
                   <VocabListItem
                     key={index}
                     rowData={rowData}
@@ -109,6 +114,11 @@ export default function VocabList({ vocabList, categoryName }: VocabListProps) {
                   />
                 ))}
               </StList>
+              {displayCount < vocabList.length && (
+                <StSeeMoreButton onClick={handleSeeMore}>
+                  Next 250 words
+                </StSeeMoreButton>
+              )}
             </>
           )}
         </div>
@@ -167,5 +177,19 @@ const StList = styled.ul`
 
   @media (max-width: 650px) {
     flex-direction: column;
+  }
+`;
+
+const StSeeMoreButton = styled.button`
+  background-color: #016d79;
+  padding: 10px 20px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+
+  &:hover {
+    background-color: #1863bd;
   }
 `;
