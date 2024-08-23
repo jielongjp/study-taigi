@@ -3,9 +3,13 @@ import VocabCardList from "../components/VocabCardList";
 import CategoryCardList from "../components/CategoryCardList";
 import { styled } from "styled-components";
 import Link from "next/link";
-import CategoryNames from "@/utils/CatergoryNames";
+import { GetStaticProps } from "next";
 
-export default function Home() {
+interface HomeProps {
+  vocabList: [];
+}
+
+export default function Home({ vocabList }: HomeProps) {
   return (
     <>
       <Head>
@@ -47,10 +51,7 @@ export default function Home() {
             <br></br>Current featured Taiwanese vocabulary
           </strong>
         </StText>
-        <VocabCardList
-          spreadsheetUrl={spreadsheetURL}
-          categoryName={categoryName}
-        />
+        <VocabCardList vocabList={vocabList} categoryName={categoryName} />
         <StTextContainer>
           <h2>What is Taiwanese Hokkien?</h2>
           <StText>
@@ -110,19 +111,37 @@ export default function Home() {
 const currentDate = new Date();
 const currentMonth = currentDate.getMonth();
 
-let spreadsheetURL = "";
 let categoryName = "";
 
 if (currentMonth === 11) {
-  spreadsheetURL = CategoryNames["christmas"].url;
   categoryName = "christmas";
 } else if (currentMonth >= 0 && currentMonth <= 5) {
-  spreadsheetURL = CategoryNames["fruit_and_veg"].url;
   categoryName = "fruit_and_veg";
 } else if (currentMonth >= 6 && currentMonth <= 10) {
-  spreadsheetURL = CategoryNames["colors"].url;
   categoryName = "colors";
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const vocabCategory = categoryName;
+
+  try {
+    const vocabList = require(`../utils/data/vocab/${vocabCategory}.json`);
+
+    return {
+      props: {
+        vocabList,
+      },
+    };
+  } catch (error) {
+    console.error("Error :", error);
+
+    return {
+      props: {
+        vocabList: [],
+      },
+    };
+  }
+};
 
 const StTitle = styled.h1`
   margin: 8px;

@@ -1,14 +1,4 @@
-interface Category {
-  url: string;
-  is_freq?: boolean;
-  vocab_description?: string;
-}
-
-interface CategoryName {
-  [category: string]: Category;
-}
-
-const CategoryNames: CategoryName = {
+const CategoryNames = {
   taiwan_food: {
     url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=1814397280&single=true",
   },
@@ -80,10 +70,6 @@ const CategoryNames: CategoryName = {
     vocab_description:
       "There are a number of loanwords from Japanese in Taiwanese Hokkien that came from when Taiwan was under Japanese rule.",
   },
-  top_4000: {
-    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=1084627403&single=true",
-    is_freq: true,
-  },
   top_500: {
     url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSf2CHodZ6hYigjqYwqdIY8p_ZsJI5LFUTYhhie-69E4bkTBjpUXkhoYox5_4CDW3WEZEmN4xhECfpF/pubhtml?gid=311547712&single=true",
     is_freq: true,
@@ -130,4 +116,4 @@ const CategoryNames: CategoryName = {
   },
 };
 
-export default CategoryNames;
+module.exports = CategoryNames;
