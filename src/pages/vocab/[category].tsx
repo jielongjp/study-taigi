@@ -9,12 +9,21 @@ import { StParagraph } from "../../components/BlogTemplate";
 
 interface VocabPageProps {
   categoryName: string;
+  vocabList: [];
 }
 
-const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
-  const spreadsheetUrl = CategoryNames[categoryName].url;
-  const is_freq = CategoryNames[categoryName].is_freq;
-  const vocab_description = CategoryNames[categoryName].vocab_description;
+const VocabPage: React.FC<VocabPageProps> = ({ categoryName, vocabList }) => {
+  const category = CategoryNames[categoryName as keyof typeof CategoryNames];
+
+  let is_freq = false;
+  if ("is_freq" in category) {
+    is_freq = category.is_freq as boolean;
+  }
+  let vocab_description = "";
+  if ("vocab_description" in category) {
+    vocab_description = category.vocab_description as string;
+  }
+
   const categoryNameSpaces = categoryName.replace(/_/g, " ");
   const metaDescription = `Taiwanese vocabulary list for ${categoryNameSpaces}. Learn ${categoryNameSpaces} words in Taiwanese Hokkien with English and Mandarin`;
 
@@ -62,9 +71,6 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
             </StTextContainer>
             <StLinkContainer>
               <StLink>
-                <Link href="/vocab/top_4000">top 4000</Link>
-              </StLink>
-              <StLink>
                 <Link href="/vocab/top_500">top 500</Link>
               </StLink>
               <StLink>
@@ -92,7 +98,7 @@ const VocabPage: React.FC<VocabPageProps> = ({ categoryName }) => {
         )}
 
         <Link href="/vocab">See all categories</Link>
-        <DataList spreadsheetUrl={spreadsheetUrl} categoryName={categoryName} />
+        <DataList vocabList={vocabList} categoryName={categoryName} />
         {!is_freq && (
           <StTextContainer>
             <StParagraph>
@@ -154,7 +160,6 @@ export async function getStaticPaths() {
   const paths = Object.keys(CategoryNames).map((category) => ({
     params: { category },
   }));
-  console.log(paths);
 
   return {
     paths,
@@ -164,11 +169,26 @@ export async function getStaticPaths() {
 export const getStaticProps: GetStaticProps = async ({ params = {} }) => {
   const categoryName = params.category as string;
 
-  return {
-    props: {
-      categoryName,
-    },
-  };
+  try {
+    const vocabList = require(`../../utils/data/vocab/${categoryName}.json`);
+    console.log(vocabList.length);
+
+    return {
+      props: {
+        categoryName,
+        vocabList,
+      },
+    };
+  } catch (error) {
+    console.error("Error in getStaticProps:", error);
+
+    return {
+      props: {
+        categoryName,
+        vocabList: [],
+      },
+    };
+  }
 };
 
 export default VocabPage;

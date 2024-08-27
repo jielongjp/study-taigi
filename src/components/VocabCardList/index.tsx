@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import { styled } from "styled-components";
-import Loading from "../Loading";
 import VocabListItem from "../VocabListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
 import generateRandomChoices from "@/utils/generateRandomChoices";
@@ -9,76 +7,25 @@ import { RowData } from "@/utils/types";
 import TestModal from "../TestModal";
 
 interface VocabListProps {
-  spreadsheetUrl: string;
   categoryName: string;
+  vocabList: RowData[];
 }
 
-export default function VocabList({
-  spreadsheetUrl,
-  categoryName,
-}: VocabListProps) {
-  const [vocabList, setVocabList] = useState<RowData[]>([]);
+export default function VocabList({ vocabList, categoryName }: VocabListProps) {
   const [hideMeaning, setHideMeaning] = useState(false);
   const [showTest, setShowTest] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [showEnglish, setShowEnglish] = useState(true);
   const [showTestModal, setShowTestModal] = useState(false);
   const [TestModalIndex, setTestModalIndex] = useState(0);
+  const [displayCount, setDisplayCount] = useState(20);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(spreadsheetUrl);
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(response.data, "text/html");
+    const isMobile = Math.min(window.screen.width, window.screen.height) < 768;
 
-        const tableRows = doc.querySelectorAll("tbody tr");
-
-        const dataRows: RowData[] = Array.from(tableRows).map((row) => {
-          const cells = row.querySelectorAll("td");
-          let rowData: RowData = {
-            columnA: cells[0]?.textContent || "",
-            columnB: cells[1]?.textContent || "",
-            columnC: cells[2]?.textContent || "",
-            columnD: cells[3]?.textContent || "",
-            columnE: cells[4]?.textContent || "",
-            columnF: cells[5]?.textContent || "",
-            columnG: cells[6]?.textContent || "",
-            columnL: cells[11]?.textContent || "",
-          };
-
-          if (rowData.columnG && rowData.columnG.includes("Example sentence")) {
-            rowData = {
-              ...rowData,
-              columnH: cells[7]?.textContent || "",
-              columnI: cells[8]?.textContent || "",
-              columnJ: cells[9]?.textContent || "",
-              columnK: cells[10]?.textContent || "",
-            };
-          }
-
-          if (rowData.columnL && rowData.columnL.includes("Example sentence")) {
-            rowData = {
-              ...rowData,
-              columnM: cells[12]?.textContent || "",
-              columnN: cells[13]?.textContent || "",
-              columnO: cells[14]?.textContent || "",
-              columnP: cells[15]?.textContent || "",
-            };
-          }
-
-          return rowData;
-        });
-        setVocabList(dataRows);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      }
+    if (!isMobile) {
+      setDisplayCount(250); // set to 250 for larger devices (desktop)
     }
-
-    fetchData();
-  }, [spreadsheetUrl]);
+  }, []);
 
   const toggleVisibility = () => {
     setHideMeaning(!hideMeaning);
@@ -101,92 +48,97 @@ export default function VocabList({
     setShowTestModal(false);
   };
 
+  const handleSeeMore = () => {
+    setDisplayCount((prevCount) => prevCount + 20);
+  };
+
   return (
     <StWrapper>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <StCatTitle>
-            <StToggle onClick={toggleTest}>
-              {showTest ? "Hide test" : "Test me"}
+      <>
+        <StCatTitle>
+          <StToggle onClick={toggleTest}>
+            {showTest ? "Hide test" : "Test me"}
+          </StToggle>
+          {showTest && (
+            <StToggle onClick={() => toggleTestModal(0)}>
+              Use popout test
             </StToggle>
-            {showTest && (
-              <StToggle onClick={() => toggleTestModal(0)}>
-                Use popout test
-              </StToggle>
-            )}
-            <h2>Category: {categoryName.replace(/_/g, " ")}</h2>
-            {vocabList.length !== 0 ? (
-              <p>total {vocabList.length} words</p>
-            ) : (
-              <p>No data available</p>
-            )}
-          </StCatTitle>
-          <div>
-            {showTest ? (
-              <>
-                {!showEnglish && (
-                  <p>
-                    For English multiple choice options, click &quot;use
-                    English&quot; before testing.
-                  </p>
-                )}
-                <StList>
-                  {vocabList.map((rowData, index) => (
-                    <MultipleChoiceItem
-                      key={index}
-                      rowData={rowData}
-                      showEnglish={showEnglish}
-                      randomChoices={generateRandomChoices(
-                        rowData,
-                        vocabList,
-                        showEnglish ? "columnB" : "columnA"
-                      )}
-                    />
-                  ))}
-                </StList>
-              </>
-            ) : (
-              <>
-                {vocabList.length !== 0 ? (
-                  <>
-                    <StToggle onClick={toggleVisibility}>
-                      {hideMeaning ? "Show Meaning" : "Hide Meaning"}
-                    </StToggle>
-                    {!hideMeaning && (
-                      <StToggle onClick={toggleEnglish}>
-                        {showEnglish ? "Hide English" : "Use English"}
-                      </StToggle>
-                    )}
-                  </>
-                ) : (
-                  ""
-                )}
-                <StList>
-                  {vocabList.map((rowData, index) => (
-                    <VocabListItem
-                      key={index}
-                      rowData={rowData}
-                      hideMeaning={hideMeaning}
-                      showEnglish={showEnglish}
-                      isUserList={false}
-                    />
-                  ))}
-                </StList>
-              </>
-            )}
-          </div>
-          {showTestModal && (
-            <TestModal
-              vocabList={shuffleArray(vocabList)}
-              initialIndex={TestModalIndex}
-              onClose={closeTestModal}
-              showEnglish={showEnglish}
-            />
           )}
-        </>
-      )}
+          <h2>Category: {categoryName.replace(/_/g, " ")}</h2>
+          {vocabList.length !== 0 ? (
+            <p>total {vocabList.length} words</p>
+          ) : (
+            <p>No data available</p>
+          )}
+        </StCatTitle>
+        <div>
+          {showTest ? (
+            <>
+              {!showEnglish && (
+                <p>
+                  For English multiple choice options, click &quot;use
+                  English&quot; before testing.
+                </p>
+              )}
+              <StList>
+                {vocabList.slice(0, displayCount).map((rowData, index) => (
+                  <MultipleChoiceItem
+                    key={index}
+                    rowData={rowData}
+                    showEnglish={showEnglish}
+                    randomChoices={generateRandomChoices(
+                      rowData,
+                      vocabList,
+                      showEnglish ? "columnB" : "columnA"
+                    )}
+                  />
+                ))}
+              </StList>
+            </>
+          ) : (
+            <>
+              {vocabList.length !== 0 ? (
+                <>
+                  <StToggle onClick={toggleVisibility}>
+                    {hideMeaning ? "Show Meaning" : "Hide Meaning"}
+                  </StToggle>
+                  {!hideMeaning && (
+                    <StToggle onClick={toggleEnglish}>
+                      {showEnglish ? "Hide English" : "Use English"}
+                    </StToggle>
+                  )}
+                </>
+              ) : (
+                ""
+              )}
+              <StList>
+                {vocabList.slice(0, displayCount).map((rowData, index) => (
+                  <VocabListItem
+                    key={index}
+                    rowData={rowData}
+                    hideMeaning={hideMeaning}
+                    showEnglish={showEnglish}
+                    isUserList={false}
+                  />
+                ))}
+              </StList>
+              {displayCount < vocabList.length && (
+                <StSeeMoreButton onClick={handleSeeMore}>
+                  See more words
+                </StSeeMoreButton>
+              )}
+            </>
+          )}
+        </div>
+        {showTestModal && (
+          <TestModal
+            vocabList={shuffleArray(vocabList)}
+            initialIndex={TestModalIndex}
+            onClose={closeTestModal}
+            showEnglish={showEnglish}
+          />
+        )}
+      </>
     </StWrapper>
   );
 }
@@ -233,5 +185,19 @@ const StList = styled.ul`
 
   @media (max-width: 650px) {
     flex-direction: column;
+  }
+`;
+
+const StSeeMoreButton = styled.button`
+  background-color: #016d79;
+  padding: 10px 20px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+
+  &:hover {
+    background-color: #1863bd;
   }
 `;

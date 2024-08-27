@@ -1,0 +1,76 @@
+[
+  {
+    "columnA": "禮拜一",
+    "columnB": "Monday",
+    "columnC": "拜一",
+    "columnD": "pài-it",
+    "columnE": "https://sutian.moe.edu.tw/media/subak/4/4908.wav",
+    "columnF": "禮拜一",
+    "columnG": "Example sentence 1:",
+    "columnL": "",
+    "columnH": "阮拜一欲考試。",
+    "columnI": "Guán pài-it beh khó-tshì. ",
+    "columnJ": "https://sutian.moe.edu.tw/media/leku/50/50766.wav",
+    "columnK": "(我們星期一要考試。)"
+  },
+  {
+    "columnA": "禮拜二",
+    "columnB": "Tuesday",
+    "columnC": "拜二",
+    "columnD": "pài-jī",
+    "columnE": "https://hts.ithuan.tw/%E6%96%87%E6%9C%AC%E7%9B%B4%E6%8E%A5%E5%90%88%E6%88%90?%E6%9F%A5%E8%A9%A2%E8%85%94%E5%8F%A3=%E5%8F%B0%E8%AA%9E&%E6%9F%A5%E8%A9%A2%E8%AA%9E%E5%8F%A5=p%C3%A0i-j%C4%AB",
+    "columnF": "禮拜二",
+    "columnG": "",
+    "columnL": ""
+  },
+  {
+    "columnA": "禮拜三",
+    "columnB": "Wednesday",
+    "columnC": "拜三",
+    "columnD": "pài-sann",
+    "columnE": "https://hts.ithuan.tw/%E6%96%87%E6%9C%AC%E7%9B%B4%E6%8E%A5%E5%90%88%E6%88%90?%E6%9F%A5%E8%A9%A2%E8%85%94%E5%8F%A3=%E5%8F%B0%E8%AA%9E&%E6%9F%A5%E8%A9%A2%E8%AA%9E%E5%8F%A5=p%C3%A0i-sann",
+    "columnF": "禮拜三",
+    "columnG": "",
+    "columnL": ""
+  },
+  {
+    "columnA": "禮拜四",
+    "columnB": "Thursday",
+    "columnC": "拜四",
+    "columnD": "pài-sì",
+    "columnE": "https://hts.ithuan.tw/%E6%96%87%E6%9C%AC%E7%9B%B4%E6%8E%A5%E5%90%88%E6%88%90?%E6%9F%A5%E8%A9%A2%E8%85%94%E5%8F%A3=%E5%8F%B0%E8%AA%9E&%E6%9F%A5%E8%A9%A2%E8%AA%9E%E5%8F%A5=p%C3%A0i-s%C3%AC",
+    "columnF": "禮拜四",
+    "columnG": "",
+    "columnL": ""
+  },
+  {
+    "columnA": "禮拜五",
+    "columnB": "Friday",
+    "columnC": "拜五",
+    "columnD": "pài-gōo",
+    "columnE": "https://hts.ithuan.tw/%E6%96%87%E6%9C%AC%E7%9B%B4%E6%8E%A5%E5%90%88%E6%88%90?%E6%9F%A5%E8%A9%A2%E8%85%94%E5%8F%A3=%E5%8F%B0%E8%AA%9E&%E6%9F%A5%E8%A9%A2%E8%AA%9E%E5%8F%A5=p%C3%A0i-g%C5%8Do",
+    "columnF": "禮拜五",
+    "columnG": "",
+    "columnL": ""
+  },
+  {
+    "columnA": "禮拜六",
+    "columnB": "Saturday",
+    "columnC": "拜六",
+    "columnD": "pài-la̍k",
+    "columnE": "https://hts.ithuan.tw/%E6%96%87%E6%9C%AC%E7%9B%B4%E6%8E%A5%E5%90%88%E6%88%90?%E6%9F%A5%E8%A9%A2%E8%85%94%E5%8F%A3=%E5%8F%B0%E8%AA%9E&%E6%9F%A5%E8%A9%A2%E8%AA%9E%E5%8F%A5=p%C3%A0i-la%CC%8Dk",
+    "columnF": "禮拜六",
+    "columnG": "",
+    "columnL": ""
+  },
+  {
+    "columnA": "禮拜天",
+    "columnB": "Sunday",
+    "columnC": "禮拜",
+    "columnD": "lé-pài",
+    "columnE": "https://hts.ithuan.tw/%E6%96%87%E6%9C%AC%E7%9B%B4%E6%8E%A5%E5%90%88%E6%88%90?%E6%9F%A5%E8%A9%A2%E8%85%94%E5%8F%A3=%E5%8F%B0%E8%AA%9E&%E6%9F%A5%E8%A9%A2%E8%AA%9E%E5%8F%A5=l%C3%A9-p%C3%A0i",
+    "columnF": "禮拜天",
+    "columnG": "",
+    "columnL": ""
+  }
+]
