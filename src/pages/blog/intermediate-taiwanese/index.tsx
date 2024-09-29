@@ -70,7 +70,7 @@ export default function IntermediateTw() {
           Searching for learning Taiwanese on Youtube doesn&apos;t reveal much
           apart from the most basic content in English. However there are a
           number of channels using Taiwanese that appear when searching in
-          Mandarin Chinese.
+          Mandarin Chinese.{" "}
           <a href="https://www.youtube.com/channel/UCZnjTNz5olPNhqMRVEdP4kA">
             無事做巴士
           </a>{" "}
