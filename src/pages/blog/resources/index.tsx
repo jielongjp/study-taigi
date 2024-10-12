@@ -139,7 +139,7 @@ export default function Resources() {
           material is locked. Currently most of the elementary level material
           seems to be locked, but you can find videos on their YouTube channel
           as well. As it&apos;s aimed at younger children the content can be a
-          bit immature.
+          bit immature and may be a little hard to use for adults.
         </StParagraph>
         <StParagraph>
           Some of the textbooks used for elementry level can also be found
@@ -191,7 +191,8 @@ export default function Resources() {
         <StParagraph>
           Although it offers a nice interface and fun method of learning,
           I&apos;ve heard some of the sentences used are not so commonly used
-          and often sound a little strange. It is free however.
+          and often sound a little strange, more like direct translations. It is
+          free however.
         </StParagraph>
         <StHeading>Anki</StHeading>
         <StParagraph>
