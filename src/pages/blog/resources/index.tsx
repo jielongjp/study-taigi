@@ -27,7 +27,9 @@ export default function Resources() {
             alt="Books and resources for learning Taiwanese Hokkien"
           />
         </StImage>
-        <StHeading>Most recommended</StHeading>
+        <StHeading>
+          Most recommended methods to learn Taiwanese Hokkien
+        </StHeading>
         <StParagraph>
           While there aren&apos;t a lot of resources, a few standout books and
           sites are available for learning Taiwanese Hokkien in English.
