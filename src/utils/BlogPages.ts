@@ -47,6 +47,12 @@ const BlogPages: BlogPage[] = [
     title: "Traditional Taiwanese Food",
     preview: "Learn names of popular traditional Taiwanese foods in Hokkien",
   },
+  {
+    slug: "traditional-taiwanese-festivals",
+    title: "Traditional Taiwanese Festivals",
+    preview:
+      "Learn names of popular traditional Taiwanese festivals in Hokkien",
+  },
 ];
 
 export default BlogPages;
