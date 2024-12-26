@@ -4,7 +4,7 @@
     "columnB": "school",
     "columnC": "學校",
     "columnD": "ha̍k-hāu",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/11/11622.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/11/11622.wav",
     "columnF": "專門提供教育的場所。",
     "columnG": "2",
     "columnL": "學堂"
@@ -14,17 +14,17 @@
     "columnB": "market",
     "columnC": "市場",
     "columnD": "tshī-tiûnn",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/1/1772.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/1/1772.wav",
     "columnF": "買賣貨物的場所。 在一定經濟範圍內，商品行銷的區域。",
     "columnG": "Example sentence 1:",
     "columnL": "Example sentence 2:",
     "columnH": "我欲來去市場買一塊豬肝。",
     "columnI": "Guá beh lâi-khì tshī-tiûnn bé tsi̍t tè ti-kuann.",
-    "columnJ": "https://sutian.moe.edu.tw/media/leku/47/47301.wav",
+    "columnJ": "https://sutian.moe.edu.tw/media/imtong/leku/47/47301.wav",
     "columnK": "(我要到市埸買一塊豬肝。)",
     "columnM": "臺灣的蓮霧已經拍入去日本的市場矣。",
     "columnN": "Tâi-uân ê lián-bū í-king phah ji̍p-khì Ji̍t-pún ê tshī-tiûnn--ah.",
-    "columnO": "https://sutian.moe.edu.tw/media/leku/47/47302.wav",
+    "columnO": "https://sutian.moe.edu.tw/media/imtong/leku/47/47302.wav",
     "columnP": "(臺灣的蓮霧已經行銷到日本了。)"
   },
   {
@@ -32,7 +32,7 @@
     "columnB": "hospital",
     "columnC": "醫生館",
     "columnD": "i-sing-kuán",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/12/12676.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/12/12676.wav",
     "columnF": "醫院、診所。",
     "columnG": "2",
     "columnL": ""
@@ -42,7 +42,7 @@
     "columnB": "bank",
     "columnC": "銀行",
     "columnD": "gîn-hâng/gûn-hâng",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/10/10876.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/10/10876.wav",
     "columnF": "一種金融機構。以存款、放款、匯兌為主要業務，或兼事票券經理、紙幣兌換、代理國庫之出納等業務。",
     "columnG": "",
     "columnL": ""
@@ -52,7 +52,7 @@
     "columnB": "office",
     "columnC": "辦公室",
     "columnD": "pān-kong-sik",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/22/22325.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/22/22325.wav",
     "columnF": "（臺華共同詞 ，無義項）",
     "columnG": "",
     "columnL": ""
@@ -62,7 +62,7 @@
     "columnB": "hotel",
     "columnC": "旅館",
     "columnD": "lí-kuán/lú-kuán",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/6/6067.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/6/6067.wav",
     "columnF": "旅社。",
     "columnG": "2",
     "columnL": "飯店"
@@ -72,7 +72,7 @@
     "columnB": "library",
     "columnC": "圖書館",
     "columnD": "tôo-su-kuán",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/10/10430.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/10/10430.wav",
     "columnF": "將各種圖書、資料加以蒐集、組織、保存，供群眾閱覽參考的機構。",
     "columnG": "",
     "columnL": ""
@@ -82,7 +82,7 @@
     "columnB": "shop",
     "columnC": "商店",
     "columnD": "siong-tiàm",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/7/7039.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/7/7039.wav",
     "columnF": "買賣貨物的店舖。",
     "columnG": "2",
     "columnL": "店頭"
@@ -92,7 +92,7 @@
     "columnB": "radio",
     "columnC": "電台",
     "columnD": "tiān-tâi",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/26/26829.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/26/26829.wav",
     "columnF": "（臺華共同詞 ，無義項）",
     "columnG": "",
     "columnL": ""
@@ -102,7 +102,7 @@
     "columnB": "museum",
     "columnC": "博物館",
     "columnD": "phok-bu̍t-kuán",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/8/8201.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/8/8201.wav",
     "columnF": "博物院。一個陳列各式寶貴物品，並永久保存和研究的場所。",
     "columnG": "",
     "columnL": ""
@@ -112,13 +112,13 @@
     "columnB": "station",
     "columnC": "驛",
     "columnD": "ia̍h",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/3/3505.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/3/3505.wav",
     "columnF": "車站。源自日語。",
     "columnG": "Example sentence 1:",
     "columnL": "2",
     "columnH": "前驛後驛",
     "columnI": "tsîng-ia̍h",
-    "columnJ": "https://sutian.moe.edu.tw/media/leku/59/59449.wav",
+    "columnJ": "https://sutian.moe.edu.tw/media/imtong/leku/59/59449.wav",
     "columnK": "(前站)(後站)"
   },
   {
@@ -126,7 +126,7 @@
     "columnB": "hotel",
     "columnC": "菜店",
     "columnD": "tshài-tiàm",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/8/8949.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/8/8949.wav",
     "columnF": "酒家、酒店。",
     "columnG": "2",
     "columnL": ""
@@ -136,7 +136,7 @@
     "columnB": "hotel",
     "columnC": "客棧",
     "columnD": "kheh-tsàn",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/4/4882.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/4/4882.wav",
     "columnF": "旅館、旅舍。「旅館」(lí-kuán)以前的說法。",
     "columnG": "2",
     "columnL": "旅社"
@@ -146,7 +146,7 @@
     "columnB": "supermarket",
     "columnC": "超市",
     "columnD": "tshiau-tshī",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/24/24591.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/24/24591.wav",
     "columnF": "（臺華共同詞 ，無義項）",
     "columnG": "",
     "columnL": ""
@@ -156,7 +156,7 @@
     "columnB": "pier",
     "columnC": "碼頭",
     "columnD": "bé-thâu",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/11/11268.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/11/11268.wav",
     "columnF": "在海港、河川或運河沿岸，用以停靠船隻，裝卸貨物與上下旅客的地方。",
     "columnG": "2",
     "columnL": "埠頭"
@@ -166,27 +166,27 @@
     "columnB": "railway station",
     "columnC": "火車頭",
     "columnD": "hué-tshia-thâu/hé-tshia-thâu",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/13/13946.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/13/13946.wav",
     "columnF": "火車站。 火車頭、機關車。一種用來提供鐵路列車動力的鐵路車輛，它的作用是在軌道上驅動列車。又稱「火車母」、「車母」。",
     "columnG": "Example sentence 1:",
     "columnL": "(等一下我們在火車站的前站見，一起坐下一班火車北上。)",
     "columnH": "等咧咱佇火車頭的前驛相等，做伙坐後一幫火車上北。",
     "columnI": "Tán--leh lán tī hué-tshia-thâu ê tsîng-ia̍h sio-tán",
     "columnJ": "tsò-hué tsē āu tsi̍t pang hué-tshia tsiūnn-pak.",
-    "columnK": "https://sutian.moe.edu.tw/media/leku/60/60172.wav"
+    "columnK": "https://sutian.moe.edu.tw/media/imtong/leku/60/60172.wav"
   },
   {
     "columnA": "書店",
     "columnB": "bookstore",
     "columnC": "冊店",
     "columnD": "tsheh-tiàm",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/1/1332.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/1/1332.wav",
     "columnF": "書店、書局。賣書的商店。",
     "columnG": "Example sentence 1:",
     "columnL": "",
     "columnH": "彼間冊店的冊真濟。",
     "columnI": "Hit king tsheh-tiàm ê tsheh tsin tsē.",
-    "columnJ": "https://sutian.moe.edu.tw/media/leku/46/46863.wav",
+    "columnJ": "https://sutian.moe.edu.tw/media/imtong/leku/46/46863.wav",
     "columnK": "(那間書店的書很多。)"
   },
   {
@@ -194,7 +194,7 @@
     "columnB": "restaurant",
     "columnC": "食堂",
     "columnD": "si̍t-tn̂g",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/5/5626.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/5/5626.wav",
     "columnF": "飯廳、飯館。供人飲食的地方。源自日語。",
     "columnG": "2",
     "columnL": ""
@@ -214,7 +214,7 @@
     "columnB": "theater",
     "columnC": "劇院",
     "columnD": "kio̍k-īnn",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/26/26631.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/26/26631.wav",
     "columnF": "（臺華共同詞 ，無義項）",
     "columnG": "",
     "columnL": ""
@@ -224,7 +224,7 @@
     "columnB": "post office",
     "columnC": "郵局",
     "columnD": "iû-kio̍k",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/9/9111.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/9/9111.wav",
     "columnF": "辦理郵政事務的機關。",
     "columnG": "2",
     "columnL": ""
@@ -234,7 +234,7 @@
     "columnB": "bar",
     "columnC": "酒吧",
     "columnD": "tsiú-pa",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/23/23929.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/23/23929.wav",
     "columnF": "（臺華共同詞 ，無義項）",
     "columnG": "",
     "columnL": ""
@@ -244,13 +244,13 @@
     "columnB": "cinema",
     "columnC": "戲園",
     "columnD": "hì-hn̂g",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/12/12171.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/12/12171.wav",
     "columnF": "戲院。出售門票，放映電影或演出戲劇、歌舞等，以供觀眾欣賞的場所。",
     "columnG": "Example sentence 1:",
     "columnL": "2",
     "columnH": "我佮伊約佇戲園門口見面。",
     "columnI": "Guá kah i iok tī hì-hn̂g mn̂g-kháu kìnn-bīn.",
-    "columnJ": "https://sutian.moe.edu.tw/media/leku/58/58222.wav",
+    "columnJ": "https://sutian.moe.edu.tw/media/imtong/leku/58/58222.wav",
     "columnK": "(我和他約在戲院門口見面。)"
   },
   {
@@ -258,13 +258,13 @@
     "columnB": "teahouse",
     "columnC": "茶館",
     "columnD": "tê-kuán",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/6/6617.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/6/6617.wav",
     "columnF": "專門供人喝茶的店。",
     "columnG": "Example sentence 1:",
     "columnL": "2",
     "columnH": "咱來去茶館啉茶開講。",
     "columnI": "Lán lâi-khì tê-kuán lim tê khai-káng.",
-    "columnJ": "https://sutian.moe.edu.tw/media/leku/52/52468.wav",
+    "columnJ": "https://sutian.moe.edu.tw/media/imtong/leku/52/52468.wav",
     "columnK": "(我們去茶室喝茶聊天。)"
   },
   {
@@ -282,7 +282,7 @@
     "columnB": "police station",
     "columnC": "警察局",
     "columnD": "kíng-tshat-kio̍k",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/13/13036.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/13/13036.wav",
     "columnF": "警察機構，掌理警察、警衛、民防及動員等事項，以維持地方的公共安寧。",
     "columnG": "2",
     "columnL": ""
@@ -292,13 +292,13 @@
     "columnB": "pharmacy",
     "columnC": "藥局",
     "columnD": "io̍h-kio̍k",
-    "columnE": "https://sutian.moe.edu.tw/media/subak/12/12847.wav",
+    "columnE": "https://sutian.moe.edu.tw/media/imtong/subak/12/12847.wav",
     "columnF": "泛指一般的西藥房。",
     "columnG": "Example sentence 1:",
     "columnL": "",
     "columnH": "路口彼間藥局生理真好。",
     "columnI": "Lōo-kháu hit king io̍h-kio̍k sing-lí tsin hó.",
-    "columnJ": "https://sutian.moe.edu.tw/media/leku/58/58979.wav",
+    "columnJ": "https://sutian.moe.edu.tw/media/imtong/leku/58/58979.wav",
     "columnK": "(路口那間藥房的生意很好。)"
   }
 ]
