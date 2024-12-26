@@ -18,6 +18,21 @@ const PhraseTypes: PhraseType = {
     description:
       "Phrases related to transport in Hokkien for intermediate to advanced learners.",
   },
+  action: {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRwrzcz8jup2uf00JAzmtL4EyOLFUISGCCfKYhsOHxgoI-L_clw3Puxku3YKPO4bKF2r549YE2Td6QB/pubhtml?gid=1508388282&single=true",
+    description:
+      "Phrases related to action words in Hokkien for intermediate to advanced learners.",
+  },
+  home: {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRwrzcz8jup2uf00JAzmtL4EyOLFUISGCCfKYhsOHxgoI-L_clw3Puxku3YKPO4bKF2r549YE2Td6QB/pubhtml?gid=1364435284&single=true",
+    description:
+      "Phrases related to home in Hokkien for intermediate to advanced learners.",
+  },
+  environment: {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRwrzcz8jup2uf00JAzmtL4EyOLFUISGCCfKYhsOHxgoI-L_clw3Puxku3YKPO4bKF2r549YE2Td6QB/pubhtml?gid=1816893528&single=true",
+    description:
+      "Phrases related to the environment in Hokkien for intermediate to advanced learners.",
+  },
 };
 
 export default PhraseTypes;
