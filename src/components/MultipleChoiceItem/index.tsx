@@ -7,7 +7,8 @@ const MultipleChoiceItem: React.FC<{
   rowData: RowData;
   randomChoices: string[];
   showEnglish: boolean;
-}> = ({ rowData, randomChoices, showEnglish }) => {
+  isTestModal?: boolean;
+}> = ({ rowData, randomChoices, showEnglish, isTestModal }) => {
   const [showExamples, setShowExamples] = useState<boolean>(false);
 
   const toggleExamples = () => {
@@ -18,10 +19,17 @@ const MultipleChoiceItem: React.FC<{
     <StListItem>
       <p>{rowData.columnD}</p>
       <StAudio>
-        <audio controls>
-          <source src={rowData.columnE} type="audio/wav" />
-          Your browser does not support the audio element.
-        </audio>
+        {isTestModal ? (
+          <audio controls autoPlay>
+            <source src={rowData.columnE} type="audio/wav" />
+            Your browser does not support the audio element.
+          </audio>
+        ) : (
+          <audio controls>
+            <source src={rowData.columnE} type="audio/wav" />
+            Your browser does not support the audio element.
+          </audio>
+        )}
       </StAudio>
       <StSmallText>choose the correct translation:</StSmallText>
       <StMultipleChoice>

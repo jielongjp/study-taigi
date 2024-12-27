@@ -6,6 +6,7 @@ import PhraseListItem from "../PhraseListItem";
 import MultipleChoiceItem from "../MultipleChoiceItem";
 import generateRandomChoices from "@/utils/generateRandomChoices";
 import { RowData } from "@/utils/types";
+import TestModal from "../TestModal";
 
 interface PhraseListProps {
   spreadsheetUrl: string;
@@ -19,10 +20,8 @@ export default function PhraseList({ spreadsheetUrl }: PhraseListProps) {
   const [loading, setLoading] = useState(true);
   const [showEnglish, setShowEnglish] = useState(true);
 
-  /* decide later whether to use testing for phrases or not */
-
-  // const [showTestModal, setShowTestModal] = useState(false);
-  // const [TestModalIndex, setTestModalIndex] = useState(0);
+  const [showTestModal, setShowTestModal] = useState(false);
+  const [TestModalIndex, setTestModalIndex] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -71,14 +70,14 @@ export default function PhraseList({ spreadsheetUrl }: PhraseListProps) {
     setShowEnglish(!showEnglish);
   };
 
-  // const toggleTestModal = (index: number) => {
-  //   setTestModalIndex(index);
-  //   setShowTestModal(true);
-  // };
+  const toggleTestModal = (index: number) => {
+    setTestModalIndex(index);
+    setShowTestModal(true);
+  };
 
-  // const closeTestModal = () => {
-  //   setShowTestModal(false);
-  // };
+  const closeTestModal = () => {
+    setShowTestModal(false);
+  };
 
   return (
     <StWrapper>
@@ -87,14 +86,7 @@ export default function PhraseList({ spreadsheetUrl }: PhraseListProps) {
       ) : (
         <>
           <StCatTitle>
-            {/* <StToggle onClick={toggleTest}>
-              {showTest ? "Hide test" : "Test me"}
-            </StToggle>
-            {showTest && (
-              <StToggle onClick={() => toggleTestModal(0)}>
-                Use popout test
-              </StToggle>
-            )} */}
+            <StToggle onClick={() => toggleTestModal(0)}>Test me</StToggle>
             {PhraseList.length !== 0 ? (
               <p>total {PhraseList.length} phrases</p>
             ) : (
@@ -154,18 +146,24 @@ export default function PhraseList({ spreadsheetUrl }: PhraseListProps) {
               </>
             )}
           </div>
-          {/* {showTestModal && (
+          {showTestModal && (
             <TestModal
-              PhraseList={shuffleArray(PhraseList)}
+              vocabList={shuffleArray(PhraseList)}
               initialIndex={TestModalIndex}
               onClose={closeTestModal}
               showEnglish={showEnglish}
             />
-          )} */}
+          )}
         </>
       )}
     </StWrapper>
   );
+}
+
+function shuffleArray(array: RowData[]): RowData[] {
+  const shuffled = [...array];
+  shuffled.sort(() => Math.random() - 0.5);
+  return shuffled;
 }
 
 const StWrapper = styled.div`

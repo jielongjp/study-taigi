@@ -19,6 +19,7 @@ const TestModal = ({
 }: TestModalProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const TestModalContentRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const goToNextCard = () => {
     const nextIndex = (currentIndex + 1) % vocabList.length;
@@ -30,6 +31,12 @@ const TestModal = ({
     setCurrentIndex(prevIndex);
   };
 
+  const replayAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
   const handleOutsideClick = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     const TestModalContent = TestModalContentRef.current;
@@ -39,12 +46,25 @@ const TestModal = ({
     }
   };
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "ArrowRight") {
+      goToNextCard();
+    } else if (e.key === "ArrowLeft") {
+      goToPrevCard();
+    } else if (e.key === "Enter") {
+      replayAudio();
+    }
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [onClose]);
+  }, [currentIndex]);
 
   return (
     <StTestModalWrapper>
@@ -59,7 +79,9 @@ const TestModal = ({
             vocabList,
             showEnglish ? "columnB" : "columnA"
           )}
+          isTestModal={true}
         />
+        <audio ref={audioRef} src={vocabList[currentIndex]?.columnE} />
         <StTestModalNavButton style={{ left: 0 }} onClick={goToPrevCard}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
