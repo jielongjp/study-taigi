@@ -33,6 +33,11 @@ const PhraseTypes: PhraseType = {
     description:
       "Phrases related to the environment in Hokkien for intermediate to advanced learners.",
   },
+  interpersonal: {
+    url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRwrzcz8jup2uf00JAzmtL4EyOLFUISGCCfKYhsOHxgoI-L_clw3Puxku3YKPO4bKF2r549YE2Td6QB/pubhtml?gid=353478451&single=true",
+    description:
+      "Phrases related to relationships and communication between people.",
+  },
 };
 
 export default PhraseTypes;
