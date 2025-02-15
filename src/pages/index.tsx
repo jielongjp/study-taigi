@@ -30,9 +30,9 @@ export default function Home({ vocabList }: HomeProps) {
         <StText>
           <Link href="/vocab">See all vocab categories</Link>
         </StText>
-        <StText>
+        <StPhraseList>
           <Link href="/phrases">Taiwanese Hokkien phrases</Link>
-        </StText>
+        </StPhraseList>
         <StText>
           New to the Taiwanese language? Have a look at some of the top
           recommended resources <br></br> for learning Taiwanese Hokkien here:{" "}
@@ -171,4 +171,22 @@ const StLinkBreak = styled.div`
   height: 1px;
   background-color: #555555;
   margin: 20px 0;
+`;
+
+const StPhraseList = styled.div`
+  a {
+    display: inline-block;
+    font-size: 20px;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #016d79;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
 `;
