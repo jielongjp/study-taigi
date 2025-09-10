@@ -7,6 +7,7 @@ import MultipleChoiceItem from "../MultipleChoiceItem";
 import generateRandomChoices from "@/utils/generateRandomChoices";
 import { RowData } from "@/utils/types";
 import TestModal from "../TestModal";
+import Papa from "papaparse";
 
 interface PhraseListProps {
   spreadsheetUrl: string;
@@ -27,26 +28,23 @@ export default function PhraseList({ spreadsheetUrl }: PhraseListProps) {
     async function fetchData() {
       try {
         const response = await axios.get(spreadsheetUrl);
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(response.data, "text/html");
 
-        const tableRows = doc.querySelectorAll("tbody tr");
-
-        const dataRows: RowData[] = Array.from(tableRows).map((row) => {
-          const cells = row.querySelectorAll("td");
-          let rowData: RowData = {
-            columnA: cells[0]?.textContent || "",
-            columnB: cells[1]?.textContent || "",
-            columnC: cells[2]?.textContent || "",
-            columnD: cells[3]?.textContent || "",
-            columnE: cells[4]?.textContent || "",
-            columnF: cells[5]?.textContent || "",
-            columnG: cells[6]?.textContent || "",
-            columnL: cells[11]?.textContent || "",
-          };
-
-          return rowData;
+        const parsed = Papa.parse(response.data, {
+          header: true,
+          skipEmptyLines: true,
         });
+
+        const dataRows: RowData[] = parsed.data.map((row: any) => ({
+          columnA: row["columnA"] || "",
+          columnB: row["columnB"] || "",
+          columnC: row["columnC"] || "",
+          columnD: row["columnD"] || "",
+          columnE: row["columnE"] || "",
+          columnF: row["columnF"] || "",
+          columnG: row["columnG"] || "",
+          columnL: row["columnL"] || "",
+        }));
+
         setPhraseList(dataRows);
         setLoading(false);
       } catch (error) {
